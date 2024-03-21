@@ -1,10 +1,13 @@
-import SideBar from "./components/SideBar/SideBar";
+import GlobalStyle from './styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
+
 
 function App() {
   return (
-    <div>
-      <SideBar />
-    </div>
+    <ThemeProvider theme={theme}>
+        <GlobalStyle />
+    </ThemeProvider>
   );
 }
 
