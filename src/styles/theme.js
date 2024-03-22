@@ -3,12 +3,18 @@ const theme = {
       // Primary 
       primary: '#6941C6',
       primaryLight: '#F4EBFF',
+      primaryHover: '#7F56D9',
       primaryDark: '#42307D',
 
       // Secondary
       secondary: '#363F72',
       secondaryLight: '#EAECF5',
+      secondaryHover: '#B3B8DB',
       secondaryDark: '#101323',
+
+      //Base
+      baseWhite:'#F9FAFB',
+      baseBlack:'#101828',
 
       // Error States
       error: '#D92D20',
@@ -21,10 +27,42 @@ const theme = {
       // Text Colors
       textColor: '#101828',
       textColorLight: '#667085',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+
+      //status bg
+      submitted: '#EAECF0',
+      inProgress: '#EFF8FF',
+      completed: '#ECFDF3',
+      onHold: '#FEF6EE',
+
+      //status text
+      submittedText: '#344054',
+      inProgressText: '#175CD3',
+      completedText: '#027A48',
+      onHoldText: '#B93815',
     },
-    // Fonts
-    fontFamily: "'Public Sans', sans-serif",
+
+    // Typography
+    font:{
+        family: "'Public Sans', sans-serif",
+
+        display:{
+           xxl: "4.5em",
+            xl: "3.75em",
+            lg: "3em",
+            md: "2.25em",
+            sm: "1.875em",
+            xs: "1.5em",
+        },
+
+        text: {
+            xl:"1.25em", 
+            lg:"1.125em", 
+            md:"1em", 
+            sm:"0.875em", 
+            xs:"0.75em", 
+        },
+    },
 
     // Responsive Breakpoints
     breakpoints: {

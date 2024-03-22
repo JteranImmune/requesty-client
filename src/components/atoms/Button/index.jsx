@@ -1,33 +1,38 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
-  display: inline-block;
-  font-size: 1em;
-  margin: 0.5em;
-  padding: 0.75em
-  1.5em; /* Use rem for fluid typography */
+  display: inline-flex;
+  padding: 1rem 1.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.baseWhite};
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
   -webkit-touch-callout: none; /* Remove iOS callouts */
   -webkit-user-select: none; /* Remove mobile browser selection */
-  &:hover {
-    background-color: #f4f4f4;
-  }
-  &:active {
-    background-color: #eaeaea;
-  }
-  color: ${props => props.theme.textColor};
-  border: 2px solid ${props => props.theme.primaryColor};
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 1px 3px rgba(0, 0, 0,  0.2);
-  transition: all 0.2s ease-in-out;
-`
 
-Button.defaultProps = {
-  theme: {
-    primaryColor: "#6c9", // A nice shade of blue
-    secondaryColor: "#ffd", // Bright yellow!
-    textColor: "#fff", // White!
-  },
-};
+  /* Variant Styling */
+  ${props => props.variant === 'secondary' && css`
+      background-color: ${props => props.theme.colors.secondary};
+      border-color: ${props => props.theme.colors.secondary};
+
+      &:hover {
+        background-color: ${props => props.theme.colors.secondaryHover};
+      }
+    `
+  }
+
+  &:hover {
+    background-color:${props => props.theme.colors.primaryHover};
+  }
+
+  &:active {
+    background-color:${props => props.theme.colors.primary};
+  }
+`
 
 export default Button;

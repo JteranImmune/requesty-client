@@ -9,21 +9,23 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: ${(props) => props.theme.fontFamily} , sans-serif;
+        font-family: ${(props) => props.theme.font.family} , sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
         line-height: 1.6;
-        color: ${(props) => props.theme.colors.textColor} ;
+        color: ${(props) => props.theme.colors.textColor};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
 
     a {
-        color: #007bff;
+        color: ${(props) => props.theme.colors.primary};
         text-decoration: none;
+        transition: all .3s ease;
 
         &:hover {
-        text-decoration: underline;
+            text-decoration: underline;
+            color: ${(props) => props.theme.colors.primary};
         }
     }
 
@@ -46,14 +48,40 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: 2.25rem;
+        font-size:  ${(props) => props.theme.font.display.xxl};
         line-height: 1.1;
+        letter-spacing: -0.06rem;
     }
 
     h2 {
-        font-size: 1.75rem;
+        font-size:  ${(props) => props.theme.font.display.xl};
+        line-height: 1.1;
+        letter-spacing: -0.06rem;
     }
 
+    h3 {
+        font-size:  ${(props) => props.theme.font.display.lg};
+        line-height: 1.1;
+        letter-spacing: -0.06rem;
+    }
+
+    h4 {
+        font-size:  ${(props) => props.theme.font.display.md};
+        line-height: 1.1;
+        letter-spacing: -0.06rem;
+    }
+
+    h5 {
+        font-size:  ${(props) => props.theme.font.display.sm};
+        line-height: 1.1;
+        letter-spacing: -0.06rem;
+    }
+
+    h6 {
+        font-size:  ${(props) => props.theme.font.display.xs};
+        line-height: 1.1;
+        letter-spacing: -0.06rem;
+    }
 
   // More custom global styles
 `;
