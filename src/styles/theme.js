@@ -16,6 +16,9 @@ const theme = {
       baseWhite:'#F9FAFB',
       baseBlack:'#101828',
 
+      //Boder
+      border:"#EAECF0",
+
       // Error States
       error: '#D92D20',
       errorLight: '#FEE4E2',
@@ -61,7 +64,14 @@ const theme = {
             md:"1em", 
             sm:"0.875em", 
             xs:"0.75em", 
-        },
+        }, 
+        
+        weight: {
+            light: 300,
+            normal: 400,
+            medium: 500,
+            bold: 700,
+          },
     },
 
     // Responsive Breakpoints
@@ -117,24 +127,22 @@ const theme = {
     },
 
     // Paddings
-    spacers: {
-        small:'4px',
-        medium:'8px',
-        large:'16px',
-        xlarge:'32px',
+    padding: {
+        small: '0.25rem',
+        medium: '0.5rem',
+        normal: '1rem',
+        large: '1.5rem',
+        xlarge: '2rem', 
     },
 
-    paddings: (theme) => ({
-        ...theme.spacers,
-        top: theme.spacing(1),
-        right: theme.spacing(1),
-        bottom: theme.spacing(1),
-        left: theme.spacing(1),
-        horizontal: theme.spacing(2),
-        vertical: theme.spacing(2),
-        all: `${theme.spacing(1)}`,
-        zero: `0`
-    }),
+    // margin
+    margin: {
+        small: '0.25rem',
+        medium: '0.5rem',
+        normal: '1rem',
+        large: '1.5rem',
+        xlarge: '2rem', 
+    },
 
     //dividers
     dividers: {
