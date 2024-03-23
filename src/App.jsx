@@ -8,8 +8,11 @@ import Divider from './components/atoms/Divider';
 import Icon from './components/atoms/Icon'
 import Input from './components/atoms/Input';
 import Text from "./components/atoms/Text";
-import Labels from "./components/atoms/Labels";
+import Label from "./components/atoms/Labels";
 import StatsCard from './components/molecules/Card';
+import InputField from './components/molecules/InputField';
+import InputWithIcon from './components/molecules/InputWithIcon';
+import { FaSearch } from 'react-icons/fa';
 // import StyledLink from './components/atoms/Link'
 
 
@@ -33,11 +36,11 @@ function App() {
           <Icon iconName="FaCoffee" />
         </div>
         <form>
-          <Labels for="name"> <Text size="lg" variant="text">This is medium text.</Text></Labels>
+          <Label htmlFor="name"> <Text size="lg" variant="text">This is medium text.</Text></Label>
           <Input type="text" name='name' placeholder="Your Name" />
           <Input type="email" placeholder="Your Email" />
           <Input type="password" placeholder="Password" />
-          <Input type="text" placeholder="Password" />
+          <Input type="text" placeholder="Password"/>
           <Input type="textarea" placeholder="Password" />
           <Input type="number" disabled placeholder="Age" width="50%" />
         </form>
@@ -50,6 +53,20 @@ function App() {
           linkText="View details" 
           linkTo="/views" 
         />
+        <form>
+          <InputField
+            name="FirstName"
+            label="First Name"
+            type="text"
+            placeholder="Jose"
+          />
+          <InputWithIcon
+            iconName="FaSearch"
+            name="search"
+            type="text"
+            placeholder="search"
+          />
+        </form>
     </ThemeProvider>
   );
 }

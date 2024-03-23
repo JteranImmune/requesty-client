@@ -69,7 +69,7 @@ const theme = {
         weight: {
             light: 300,
             normal: 400,
-            medium: 500,
+            medium: 600,
             bold: 700,
           },
     },
