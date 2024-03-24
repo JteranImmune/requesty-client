@@ -16,6 +16,12 @@ const theme = {
       baseWhite:'#F9FAFB',
       baseBlack:'#101828',
 
+      //Backgrounds
+      dark:"#101828",
+      lightDark:"#344054",
+      light:"#F2F4F7",
+      
+
       //Boder
       border:"#EAECF0",
 
@@ -107,32 +113,25 @@ const theme = {
         xxl: '0px 24px 48px -12px rgba(16, 24, 40, 0.18);',
     },
 
-    // containers
+    // Containers
     containers: {
-        default: {
-            maxWidth: "100%"
-        },
-        sm: {
-            maxWidth: "40rem"
-        },
-        md: {
-            maxWidth: "48rem"
-        },
-        lg: {
-            maxWidth: "64rem"
-        },
-        xl: {
-            maxWidth: "80rem"
-        },
+        default:"100%",
+        xsm: '20rem',    
+        sm: '40rem',
+        md: '48rem',
+        lg: '64rem',
+        xl: '80rem',
     },
 
     // Paddings
     padding: {
-        small: '0.25rem',
-        medium: '0.5rem',
+        xsmall: '0.25rem',
+        small: '0.5rem',
+        medium: '0.75rem',
         normal: '1rem',
         large: '1.5rem',
         xlarge: '2rem', 
+        xxlarge: '2.5rem', 
     },
 
     // margin
@@ -150,6 +149,17 @@ const theme = {
         dashed: 'dashed 1px #EAECF5',
         solidWhite: 'solid 1px white'
     },
+
+    //Border radius
+    borderRadius: {
+        none:'none',
+        xs: '0.125rem',  
+        sm: '.25rem',       
+        base: '.375rem',     
+        large: '.5rem',     
+        rr: '9999em',       
+        circle: '50%',
+    }
 };
 
 export default theme;

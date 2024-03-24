@@ -3,8 +3,8 @@ import React from 'react';
 import * as Icons from 'react-icons/fa';
 
 const StyledIcon = styled.div`
-    width: 24px;
-    height: 24px;
+    width: 1.25rem;
+    height: 1.25rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;

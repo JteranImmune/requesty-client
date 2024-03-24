@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
     html {
         font-size: 16px;
+        box-sizing: border-box;
     }
 
     body {
@@ -83,7 +84,11 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing: -0.06rem;
     }
 
-  // More custom global styles
+  // div custom styles
+
+  [display="flex"] {display:flex}
+  [gap="small"] {gap:0.5rem}
+  [gap="medium"] {gap:0.75rem}
 `;
 
 export default GlobalStyle;
