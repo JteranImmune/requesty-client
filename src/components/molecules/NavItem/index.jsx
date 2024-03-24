@@ -18,7 +18,6 @@ const NavItemContainer = styled.div`
   border-radius: ${props => props.theme.borderRadius.base};
   cursor: pointer;
 
-  
   &:hover {
     background-color: ${props => props.theme.colors.lightDark};
     color:${props => props.theme.colors.secondaryLight};
@@ -110,14 +109,14 @@ const NavItem = ({ icon, to, children, dropdownItems }) => {
         <Flex gap="medium">
           <Icon iconName={icon}/> 
           {children}
-          <Flex justify='flex-end' alignSelf="center">
-            <Icon className={isOpen ? 'openArrow' : ''} iconName="FaChevronDown"/>
+          <Flex justify='flex-end' alignself="center">
+            <Icon className={isOpen ? 'openArrow' : ''} iconName="FaCaretDown"/>
           </Flex>
         </Flex>
         <DropdownMenu>
-          {dropdownItems.map(item => (
-            <DropdownLink key={item.to} to={item.to}>
-              {item.label}
+          {dropdownItems.map(link => (
+            <DropdownLink key={link.to} to={link.to}>
+              {link.label}
             </DropdownLink>
           ))}
         </DropdownMenu>

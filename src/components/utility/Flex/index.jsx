@@ -8,7 +8,7 @@ const Flex = styled(Box)`
   justify-content: ${props => props.justify || 'flex-start'};
   flex: ${props => props.flex || '1 0 0'};
   gap: ${props => props.theme.padding[props.gap] || '0'};
-  align-self: ${props => props.alignSelf || 'auto'};
+  align-self: ${props => props.alignself || 'auto'};
   max-width: ${props => props.theme.containers[props.maxWidth] || 'unset'};
 `;
 

@@ -2,9 +2,16 @@ import Text from '../../atoms/Text';
 import Flex from '../../utility/Flex';
 import { Link } from 'react-router-dom';
 import NavItem from './../../molecules/NavItem'
-import Icon from '../../atoms/Icon';
 
 const SideBar = () =>{
+
+    const NAVIGATION_LINK = [
+        {link: "/dashboard", text:"Dashboard", dropdown:"false", icon:"FaHome", dropdownItems:[{}]},
+        {link: "/request", text:"Request", dropdown:"false", icon:"FaListUl", dropdownItems:[{}]},
+        {link: "/users", text:"Users", dropdown:"true", icon:"FaUser", dropdownItems: [{ to: '/team', label: 'Team'},{ to: '/clients', label: 'Clients'}] },
+        {link: "/services", text:"Services", dropdown:"true", icon:"FaThLarge", dropdownItems:[{ to: '/createSerice', label: 'Create Service'},{ to: '/allServices', label: 'All Services'}] },
+    ]
+
     return (
         <Flex direction="column" justify="space-between" bg="dark" maxWidth="xsm" height="100vh">
            <Flex direction="column" padding="2rem 0 0 0" gap="large">    
@@ -14,8 +21,19 @@ const SideBar = () =>{
                     </Link>
                 </Flex>
                 <Flex direction="column" justify="flex-start" gap="small" padding="0rem 1rem" > 
-                    <NavItem to="/dashboard" icon='FaThLarge'><Text>Dasboard</Text></NavItem>
-                    <NavItem to="/request" icon='FaTasks'><Text>Request</Text></NavItem>
+                    {NAVIGATION_LINK.map(({link , text , dropdown, icon, dropdownItems}) =>{
+                            return (
+                                <NavItem
+                                    to={link}
+                                    key={text}
+                                    icon={icon}
+                                    isDropdown={dropdown}
+                                    dropdownItems={dropdown === "true" ? dropdownItems : []}
+                                    >
+                                    <Text>{text}</Text>
+                                </NavItem>
+                            )
+                    })}
                     <NavItem
                         icon='FaUser'
                         dropdownItems={[
