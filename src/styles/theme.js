@@ -76,8 +76,15 @@ const theme = {
             light: 300,
             normal: 400,
             medium: 600,
-            bold: 700,
+            bold: 800,
           },
+
+        styles:{
+            uppercase:"uppercase", 
+            capitalize:"capitalize", 
+            none:"none",
+            underline:"underline"
+        }  
     },
 
     // Responsive Breakpoints
@@ -87,19 +94,6 @@ const theme = {
       md: "768px",
       lg: "1024px",
       xl: "1280px"
-    },
-
-    // Spacing
-    spacing: (name, scale) => {
-        return `${scale[name] / 16}rem`
-    },
-    scale: {
-        xsmall:4,
-        small: 8,
-        medium: 16,
-        large: 32,
-        xlarge: 64,
-        huge: 128,
     },
     
     // Shadows

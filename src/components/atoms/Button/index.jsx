@@ -15,7 +15,6 @@ const Button = styled.button`
   -webkit-touch-callout: none; /* Remove iOS callouts */
   -webkit-user-select: none; /* Remove mobile browser selection */
 
-  /* Variant Styling */
   ${props => props.variant === 'secondary' && css`
       background-color: ${props => props.theme.colors.secondary};
       border-color: ${props => props.theme.colors.secondary};

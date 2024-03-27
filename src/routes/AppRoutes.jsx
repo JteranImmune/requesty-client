@@ -1,11 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import SideBar from "../components/organisms/SideBar/SideBar";
+import MainLayout from "../Layouts/MainLayout";
+import Dasboard from "../pages/Dashboard/Dasboard";
 
 const AppRoutes = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <SideBar/>,
+            element: <MainLayout/>,
+            children: [{
+                path: "/",
+                element:<Dasboard/>
+            }]
         },
     ])
 

@@ -1,0 +1,29 @@
+[
+  {
+  "_id":  "65f235c7f9e1521fcf96f7a3",
+  "title": "New task with owner",
+  "client":  "Client name",
+  "status": "submitted",
+  "priority": "High",
+  "dueDate": "2024-10-15",
+  "owner": "Juan"
+  },
+  {
+    "_id":  "65f235c7f9e1521fcf96f7a5",
+    "title": "New task with owner",
+    "client":  "Client name",
+    "status": "submitted",
+    "priority": "High",
+    "dueDate": "2024-10-15",
+    "owner": "Pedro"
+  },
+  {
+    "_id":  "65f235c7f9e1521fcf96f7a7",
+    "title": "New task with owner",
+    "client":  "Client name",
+    "status": "submitted",
+    "priority": "High",
+    "dueDate": "2024-10-15",
+    "owner": "Jose"
+  }
+]

@@ -13,6 +13,7 @@ const Text = styled.p`
   margin-bottom: ${props => props.theme.margin[props.marginBottom] || '0'};
   margin-left: ${props => props.theme.margin[props.marginLeft] || '0'};
   margin-right: ${props => props.theme.margin[props.marginRight] || '0'};
+  text-transform: ${props => props.theme.font.styles[props.styles] || 'inherit'};
 `;
 
 export default Text;
