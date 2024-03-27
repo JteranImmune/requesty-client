@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Input = styled.input`
+const InputStyled = styled.input`
   width: ${props => props.width || '100%'};
   height: ${props => props.width || '25px'};
   padding: 8px;
@@ -35,8 +35,10 @@ const Input = styled.input`
   }
 `;
 
-Input.defaultProps = {
-  type: 'text',
+const Input = ({type}) =>{
+  return(
+    <Input type={type}></Input>
+  )
 }
 
 export default Input;

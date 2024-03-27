@@ -23,19 +23,23 @@ const DataTable = ({headings , tasks}) => {
         <Table>
             <TableHead>
                 <TableRow>
+                    <TableHeadingItem></TableHeadingItem>
                     {headings.map((heading, index) =>{
                         return(
                             <TableHeadingItem key={heading}>{heading}</TableHeadingItem>
                         )
                     })}
+                    <TableHeadingItem ></TableHeadingItem>
                 </TableRow>
             </TableHead>
             <tbody>
+            <TableRow ></TableRow>
                 {tasks.map((dataRow, index) => {
                     return(
                         <TableRow dataRow={dataRow} key={dataRow._id} />
                     )
                 })}
+            <TableRow ></TableRow>    
             </tbody>
         </Table>
     )

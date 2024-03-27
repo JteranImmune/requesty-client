@@ -2,8 +2,15 @@ import styled from "styled-components"
 import Text from "../../atoms/Text"
 
 const TableHeading = styled.th`
-    ${props => props.theme.font.text.sm}
+    font-size:${props => props.theme.font.text.sm};
     color:${props => props.theme.colors.textColor};
+
+    /* space column */
+    .is-space {
+       width:4rem;
+    }
+
+    text-align: left;
     text-transform: uppercase;
     padding:${props => props.theme.padding.medium} 0;
     overflow: hidden;
@@ -11,9 +18,12 @@ const TableHeading = styled.th`
     white-space: nowrap;
     background-color:${props => props.theme.colors.light};
     font-weight: 800;
+    width: auto;
 `
-const TableHeadingItem = ({children})=>{
+const TableHeadingItem = ({children, isSpace})=>{
     
+    // if(isSpace) return <TableHeading className="is-space"></TableHeading>
+
     return (
     <TableHeading scope="col">
         <Text weight="medium">{children}</Text>
