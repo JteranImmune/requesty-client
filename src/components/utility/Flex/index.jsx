@@ -9,7 +9,10 @@ const Flex = styled(Box)`
   flex: ${props => props.flex || '1 0 0'};
   gap: ${props => props.theme.padding[props.gap] || '0'};
   align-self: ${props => props.alignSelf || 'auto'};
-  max-width: ${props => props.theme.containers[props.maxWidth] || 'unset'};;
+  max-width: ${props => props.theme.containers[props.maxWidth] || 'unset'};
+  border-radius: ${props => props.borderRadius || '0'};
+  overflow:${props => props.overflow || 'inherit'};
+  border: ${props => props.border || 'none'};;
 `;
 
 export default Flex;

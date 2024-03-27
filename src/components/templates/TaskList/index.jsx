@@ -9,7 +9,7 @@ const TaskList = () =>{
       const [tasks, setTask] = useState(taskList.slice(0.6))
 
     return(
-        <Flex direction="column">
+        <Flex direction="column" borderRadius="0.5rem" overflow="auto" border="1px solid #EAECF0">
             <DataTable tasks={tasks} headings={headings} title="My Tasks" key={Math.random()}/>
         </Flex>
     )

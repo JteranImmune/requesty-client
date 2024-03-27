@@ -11,6 +11,7 @@ const CardContainer = styled.div`
     border: 1px solid ${props => props.theme.colors.border};
     background: ${props => props.theme.colors.baseWhite};
     box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+    overflow: hidden;
 `;
 
 const CardContent = styled(CardContainer)`
@@ -20,6 +21,7 @@ const CardContent = styled(CardContainer)`
     box-shadow: none;
     border-radius: 0;
     border: none;
+    overflow: visible;
 `
 
 const CardAction = styled.div`
@@ -31,6 +33,7 @@ const CardAction = styled.div`
     box-shadow: none;
     padding-inline: ${props => props.theme.padding.large};
     padding-block: ${props => props.theme.padding.normal};
+    background: #fff;
 `
 
 const CardActionContent = styled(CardAction)`

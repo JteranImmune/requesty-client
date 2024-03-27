@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 const InputStyled = styled.input`
   width: ${props => props.width || '100%'};
-  height: ${props => props.width || '25px'};
-  padding: 8px;
+  height: ${props => props.type === 'checkbox' ? 'auto' : '25px'};
+  padding: ${props => props.type === 'checkbox' ? '0' : '8px'};
   font-size: 14px;
   display: flex;
   padding: 0.625rem 0.875rem;
   align-items: center;
   gap: 0.5rem;
   align-self: stretch;
-  border-radius: 0.5rem;
+  border-radius: ${props => props.type === 'checkbox' ? '0' : '0.5rem'};
+  border-color:${props => props.type === 'checkbox' ? '#D0D5DD' : '#D0D5DD'} ;
   border: 1px solid #D0D5DD;
 
   &:focus {
@@ -33,11 +34,12 @@ const InputStyled = styled.input`
     color: #495057;
     cursor: not-allowed;
   }
+
 `;
 
 const Input = ({type}) =>{
   return(
-    <Input type={type}></Input>
+    <InputStyled type={type}></InputStyled>
   )
 }
 

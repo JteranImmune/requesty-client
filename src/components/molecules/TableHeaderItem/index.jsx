@@ -4,6 +4,7 @@ import Text from "../../atoms/Text"
 const TableHeading = styled.th`
     font-size:${props => props.theme.font.text.sm};
     color:${props => props.theme.colors.textColor};
+    border-bottom:1px solid ${props => props.theme.colors.border};
 
     /* space column */
     .is-space {
@@ -16,7 +17,7 @@ const TableHeading = styled.th`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background-color:${props => props.theme.colors.light};
+    background-color:${props => props.theme.colors.baseWhite};
     font-weight: 800;
     width: auto;
 `

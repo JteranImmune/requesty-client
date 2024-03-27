@@ -7,7 +7,7 @@ const HeaderPage = ({children, ...props}) =>{
     return(
         <Flex padding="1rem 2rem" direction="column">
             <Flex padding="0.5rem 0">
-                <Text size="md" variant="display" {...props}>
+                <Text size="md" variant="display" weight="medium" {...props}>
                     {children}
                 </Text>
             </Flex>

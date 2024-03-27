@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TableHeadingItem from "../../molecules/TableHeaderItem";
 import TableRow from "../../molecules/TableRow";
+import Text from  "../../atoms/Text";
 
 const Table = styled.table`
     width: 100%;
@@ -29,17 +30,15 @@ const DataTable = ({headings , tasks}) => {
                             <TableHeadingItem key={heading}>{heading}</TableHeadingItem>
                         )
                     })}
-                    <TableHeadingItem ></TableHeadingItem>
+                <TableHeadingItem></TableHeadingItem>
                 </TableRow>
             </TableHead>
-            <tbody>
-            <TableRow ></TableRow>
+            <tbody> 
                 {tasks.map((dataRow, index) => {
                     return(
                         <TableRow dataRow={dataRow} key={dataRow._id} />
                     )
-                })}
-            <TableRow ></TableRow>    
+                })} 
             </tbody>
         </Table>
     )
