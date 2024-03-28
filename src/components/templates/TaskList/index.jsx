@@ -1,17 +1,34 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import Flex from "../../utility/Flex";
 import DataTable from "../../organisms/DataTable";
-import taskList from "../../../tasks.json"
+// import taskList from "../../../tasks.json"
 import InputSearch from "../../molecules/InputSearch";
 import InputSelect from "../../molecules/InputSelect";
+import taskService from "../../../services/task.service";
 
 const TaskList = () =>{
     
     const headings = ["ID","Title","Client","Status","Priority","Due Date", "Owner"]
     const statusList = ["submited","in progress","completed","on hold"]
 
-    const [tasks, setTask] = useState(taskList)
+    const [tasks, setTask] = useState([])
     const [status, setstatus] = useState(statusList)
+      
+
+    const getDashboardTask = async () => {
+            try {
+                    const task = await taskService.getAllTask();
+
+                    if(task) setTask(task) 
+
+                } catch (error) {
+                    console.error(error)
+            }
+        }
+
+    useEffect( ()=>{
+        getDashboardTask();
+    },[]) 
 
     return(
         <Flex direction="column"  gap="normal">

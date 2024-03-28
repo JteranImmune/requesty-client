@@ -26,7 +26,7 @@ const DataTable = ({headings , data, rowsPerPage = 4}) => {
     
     const [currentPage, setCurrentPage] = useState(0);
 
-    const totalPages = data.length / rowsPerPage;
+    const totalPages = Math.ceil(data.length / rowsPerPage);
     
     const currentTasks = data.slice(
         currentPage * rowsPerPage,
