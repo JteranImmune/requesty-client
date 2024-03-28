@@ -51,7 +51,7 @@ const StatsCard = ({ title, number, linkText, linkTo }) => (
 
     <CardContainer>
         <CardContent>
-            <Text size="md" weight="mormal">{title}</Text>
+            <Text size="lg" weight="mormal">{title}</Text>
             <Text size="md" variant="display" weight="bold">{number}</Text>
         </CardContent>
         <CardAction>

@@ -20,6 +20,7 @@ const TableHeading = styled.th`
     background-color:${props => props.theme.colors.baseWhite};
     font-weight: 800;
     width: auto;
+    cursor: auto;
 `
 const TableHeadingItem = ({children, isSpace})=>{
     

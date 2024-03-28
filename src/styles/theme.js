@@ -32,6 +32,7 @@ const theme = {
       // Success States
       success: '#039855',
       successLight: '#D1FADF',
+      disable: '#D0D5DD',
 
       // Text Colors
       textColor: '#101828',
@@ -110,6 +111,7 @@ const theme = {
     // Containers
     containers: {
         default:"100%",
+        sidebar: '17.5rem',    
         xsm: '20rem',    
         sm: '40rem',
         md: '48rem',
@@ -147,12 +149,21 @@ const theme = {
     //Border radius
     borderRadius: {
         none:'none',
-        xs: '0.125rem',  
-        sm: '.25rem',       
-        base: '.375rem',     
-        large: '.5rem',     
+        xs: '0.25rem',  
+        sm: '.325rem',       
+        base: '.5rem',     
+        large: '1rem',     
         rr: '9999em',       
         circle: '50%',
+    },
+
+    //Icon size
+    iconSize:{
+        xsmall: "0.875rem",
+        small: "1.125rem",
+        regular: "1rem",
+        medium: "1.5rem",
+        large: "2.5rem"
     }
 };
 

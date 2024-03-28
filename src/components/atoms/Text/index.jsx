@@ -14,6 +14,7 @@ const Text = styled.p`
   margin-left: ${props => props.theme.margin[props.marginLeft] || '0'};
   margin-right: ${props => props.theme.margin[props.marginRight] || '0'};
   text-transform: ${props => props.theme.font.styles[props.styles] || 'inherit'};
+  letter-spacing: 0.8px;
 `;
 
 export default Text;

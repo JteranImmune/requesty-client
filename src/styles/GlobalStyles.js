@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme.colors.textColor};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        letter-spacing: 0.9px;
     }
 
     a {
@@ -82,6 +83,21 @@ const GlobalStyle = createGlobalStyle`
         font-size:  ${(props) => props.theme.font.display.xs};
         line-height: 1.1;
         letter-spacing: -0.06rem;
+    }
+
+    .sideBar{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        width: 16rem;
+    }
+
+    .header-page{
+        position: fixed;
+        top: 0px;
+        z-index: 1;
+        width: 100%;
     }
 
   // div custom styles

@@ -8,6 +8,7 @@ const Box = styled.div`
   padding: ${props => props.padding || '0'};
   background: ${props => props.theme.colors[props.bg] || 'transparent'};
   box-sizing: border-box;
+  position: ${props => props.position || 'relative'};
 `;
 
 export default Box;

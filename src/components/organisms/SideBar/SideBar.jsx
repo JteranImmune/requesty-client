@@ -13,7 +13,7 @@ const SideBar = () =>{
     ]
 
     return (
-        <Flex direction="column" justify="space-between" bg="dark" maxWidth="xsm" height="100vh">
+        <Flex direction="column" justify="space-between" bg="dark" maxWidth="sidebar" height="100vh" className='sideBar'>
            <Flex direction="column" padding="2rem 0 0 0" gap="large">    
                 <Flex direction="column" padding="0rem 1rem 0rem 1.5rem" width="100%" flex="0 1 0">
                     <Link to='/'>

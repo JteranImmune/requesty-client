@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import TableHeadingItem from "../../molecules/TableHeaderItem";
 import TableRow from "../../molecules/TableRow";
-import Text from  "../../atoms/Text";
+import Button from "../../atoms/Button"
+import { useState } from "react";
+import Flex from "../../utility/Flex";
+import Text from "../../atoms/Text";
 
 const Table = styled.table`
     width: 100%;
@@ -18,9 +21,22 @@ const TableHead = styled.thead`
 `
 
 
-const DataTable = ({headings , tasks}) => {
+const DataTable = ({headings , data, rowsPerPage = 6}) => {
+
+    const [currentPage, setCurrentPage] = useState(0);
+    const totalPages = Math.ceil(data.length / rowsPerPage);
+
+    const currentTasks = data.slice(
+        currentPage * rowsPerPage,
+        (currentPage + 1) * rowsPerPage
+    );
+
+    const goToPreviousPage = () => setCurrentPage(currentPage - 1 >= 0 ? currentPage - 1 : 0);
+    const goToNextPage = () => setCurrentPage(currentPage + 1 < totalPages ? currentPage + 1 : currentPage);
+
 
     return(
+        <>
         <Table>
             <TableHead>
                 <TableRow>
@@ -34,13 +50,25 @@ const DataTable = ({headings , tasks}) => {
                 </TableRow>
             </TableHead>
             <tbody> 
-                {tasks.map((dataRow, index) => {
+                {currentTasks.map((dataRow, index) => {
                     return(
                         <TableRow dataRow={dataRow} key={dataRow._id} />
                     )
                 })} 
             </tbody>
         </Table>
+        <Flex justify="flex-end" align="center" padding="0.5rem 1rem">
+            <Flex justify="flex-start" gap="normal">
+                <Button onClick={goToPreviousPage} disabled={currentPage === 0} variant="alternate">
+                    Previous
+                </Button>
+                <Button onClick={goToNextPage} disabled={currentPage === totalPages - 1} variant="alternate">
+                    Next
+                </Button>
+            </Flex>
+            <Text weight="regular"> Page {currentPage + 1} of {totalPages} </Text>
+        </Flex>
+        </>
     )
 }
 

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TableCell from "../TableCell";
 import Input from "../../atoms/Input"
+import Icon from "../../atoms/Icon"
+import Flex from "../../utility/Flex";
 
 const TableRowWrapper = styled.tr`
     border-top:${props => props.theme.colors.border};
@@ -21,12 +23,17 @@ const TableRow = ({ dataRow, children, isInput }) => {
 
         return (
             <TableRowWrapper>
-                <TableCell padding="0 0.2rem"><Input type={"checkbox"}></Input></TableCell>
+                <TableCell padding="0 0.4rem"><Input type={"checkbox"}></Input></TableCell>
                     {dataRowArray.map(([key, value], index) => (
                             <TableCell key={key}>{value}{console.log()}</TableCell>
                         ))
                     }
-                <TableCell></TableCell>    
+                <TableCell>
+                    <Flex gap="normal">
+                        <Icon iconName="FaEdit" size="xsmall"></Icon>
+                        <Icon iconName="FaTrash" size="xsmall"></Icon>
+                    </Flex>
+                </TableCell>    
             </TableRowWrapper>
         );
     }

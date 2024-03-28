@@ -1,32 +1,33 @@
 import styled from "styled-components";
+import React from "react";
 
 const InputStyled = styled.input`
   width: ${props => props.width || '100%'};
-  height: ${props => props.type === 'checkbox' ? 'auto' : '25px'};
-  padding: ${props => props.type === 'checkbox' ? '0' : '8px'};
-  font-size: 14px;
+  height: ${props => props.type === 'checkbox' ? 'auto' : '1rem'};
+  padding: ${props => props.type === 'checkbox' ? '0' : '0.8rem 0.5rem'};
+  font-size: ${props => props.theme.font.text.md};
   display: flex;
-  padding: 0.625rem 0.875rem;
   align-items: center;
   gap: 0.5rem;
   align-self: stretch;
-  border-radius: ${props => props.type === 'checkbox' ? '0' : '0.5rem'};
-  border-color:${props => props.type === 'checkbox' ? '#D0D5DD' : '#D0D5DD'} ;
-  border: 1px solid #D0D5DD;
+  border-radius:${props => props.type === 'search' ? '0' : '25px' || props.type === 'checkbox' ? '14px' : '25px'  };
+  border-color:${props => props.type === 'checkbox' ? '#EAECF0' : '#EAECF0' } ;
+  border: ${props => props.type === 'search' ? '0' : '1px'} solid #EAECF0;
 
   &:focus {
-    border: 1px solid ${props => props.theme.colors.primaryLight};
+    border: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
     background: #FFF;
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #F4EBFF;
   }
 
   &:focus-visible {
-    border: 1px solid ${props => props.theme.colors.primaryLight};
+    border: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
+    outline: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
     background: #FFF;
   }
 
   &:active {
-    border-color:${props => props.theme.colors.primaryDark}; 
+    border-color:${props => props.type === 'search' ? "transparent" : props.theme.colors.primaryDark}; 
   }
 
   &:disabled {
@@ -37,9 +38,9 @@ const InputStyled = styled.input`
 
 `;
 
-const Input = ({type}) =>{
+const Input = ({type, placeHolder, name, id, children}) =>{
   return(
-    <InputStyled type={type}></InputStyled>
+    <InputStyled type={type} placeholder={placeHolder} name={name} id={id}>{children}</InputStyled>
   )
 }
 

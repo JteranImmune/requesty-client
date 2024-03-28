@@ -3,8 +3,8 @@ import React from 'react';
 import * as Icons from 'react-icons/fa';
 
 const StyledIcon = styled.div`
-    width: 1.25rem;
-    height: 1.25rem;
+    width: ${props => props.theme.iconSize[props.size] || "auto"};
+    height: ${props => props.theme.iconSize[props.size] || "auto"};
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -16,10 +16,10 @@ const StyledIcon = styled.div`
 `;
 
 const Icon = ({ iconName, ...props }) => {
+    
     const IconComponent = Icons[iconName];
 
     if (!IconComponent) {
-        console.warn(`No icon found for name: ${iconName}`);
         return null;
     }
 

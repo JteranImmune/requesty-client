@@ -1,12 +1,17 @@
+import React from "react";
 import styled, { css } from "styled-components";
+import Text from "../../atoms/Text"
+import Icon from "../../atoms/Icon"
 
-const Button = styled.button`
+
+
+const ButtonStyled = styled.button`
   display: inline-flex;
-  padding: 1rem 1.75rem;
+  padding: ${props => props.theme.padding.medium} ${props => props.theme.padding.normal};
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-  border-radius: 0.5rem;
+  border-radius: ${props => props.theme.borderRadius.base};
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.baseWhite};
@@ -25,6 +30,19 @@ const Button = styled.button`
     `
   }
 
+
+  ${props => props.variant === 'alternate' && css`
+      background-color: white;
+      color:  ${props => props.theme.colors.textColor};
+      border: 1.5px solid ${props => props.theme.colors.border};
+      font-weight: 400;
+      padding: ${props => props.theme.padding.small} ${props => props.theme.padding.medium};
+
+      &:hover {
+        background-color: ${props => props.theme.colors.baseWhite} !important;
+    }`
+  }
+
   &:hover {
     background-color:${props => props.theme.colors.primaryHover};
   }
@@ -33,5 +51,14 @@ const Button = styled.button`
     background-color:${props => props.theme.colors.primary};
   }
 `
+
+const Button = ({children, iconName, variant}) =>{
+  return(
+    <ButtonStyled variant={variant}>
+      <Icon iconName={iconName}></Icon>
+      <Text weight="normal">{children}</Text>
+    </ButtonStyled>
+  )
+}
 
 export default Button;
