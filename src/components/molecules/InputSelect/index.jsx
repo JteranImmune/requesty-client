@@ -21,11 +21,11 @@ const Option = ({ children, value, ...props}) => {
     return <OptionStyled value={value} {...props}>{children}</OptionStyled>;
 };
 
-const InputSelect = ({ options, name, onChange, error, disabled, defaultValue, placeHolder }) => {
+const InputSelect = ({ options, name, onChange, error, disabled, defaultValue, placeholder }) => {
     return (
         <Flex width="23.5rem" flex="none">
-            <SelectStyled id={name} name={name} onChange={onChange} disabled={disabled} placeHolder="select">
-                <Option selected>{placeHolder}</Option>
+            <SelectStyled id={name} name={name} onChange={onChange} disabled={disabled} placeholder="select">
+                <Option>{placeholder}</Option>
                 {options.map((option, index) => (
                     <Option key={index} value={option}>{option}</Option>
                 ))}

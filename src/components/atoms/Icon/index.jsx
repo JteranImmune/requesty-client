@@ -8,6 +8,7 @@ const StyledIcon = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: ${props => props.cursor || "auto"};
 
     svg {
         width: 100%;

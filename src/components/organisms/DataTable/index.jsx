@@ -21,18 +21,27 @@ const TableHead = styled.thead`
 `
 
 
-const DataTable = ({headings , data, rowsPerPage = 6}) => {
+const DataTable = ({headings , data, rowsPerPage = 4}) => {
 
+    
     const [currentPage, setCurrentPage] = useState(0);
-    const totalPages = Math.ceil(data.length / rowsPerPage);
 
+    const totalPages = data.length / rowsPerPage;
+    
     const currentTasks = data.slice(
         currentPage * rowsPerPage,
         (currentPage + 1) * rowsPerPage
-    );
+        );
 
-    const goToPreviousPage = () => setCurrentPage(currentPage - 1 >= 0 ? currentPage - 1 : 0);
-    const goToNextPage = () => setCurrentPage(currentPage + 1 < totalPages ? currentPage + 1 : currentPage);
+    const goToPreviousPage = () => {
+        const newPage = currentPage - 1 >= 0 ? currentPage - 1 : 0;
+        setCurrentPage(newPage);
+    };
+    
+    const goToNextPage = () => {
+        const newPage = currentPage + 1 < totalPages ? currentPage + 1 : currentPage;
+        setCurrentPage(newPage);
+    };
 
 
     return(

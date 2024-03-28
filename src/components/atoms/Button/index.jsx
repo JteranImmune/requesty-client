@@ -52,9 +52,9 @@ const ButtonStyled = styled.button`
   }
 `
 
-const Button = ({children, iconName, variant}) =>{
+const Button = ({children, iconName, variant, onClick}) =>{
   return(
-    <ButtonStyled variant={variant}>
+    <ButtonStyled variant={variant} onClick={onClick}>
       <Icon iconName={iconName}></Icon>
       <Text weight="normal">{children}</Text>
     </ButtonStyled>

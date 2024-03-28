@@ -14,15 +14,13 @@ const TableCellItem = styled.td`
 
 const TableCell =  ({children, ...props}) => {
     return (
-        <TableCellItem role="table-cell" key={Math.random()} {...props}>
+        <TableCellItem role="table-cell" {...props}>
             <Box padding="1rem 0">
-                <Text size={"md"}>
                     {children}
-                </Text>
             </Box>
         </TableCellItem>
     )
-}
+};
 
 
 export default TableCell;

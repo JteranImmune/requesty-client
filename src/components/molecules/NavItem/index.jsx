@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink,  useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../../atoms/Icon';
 import Flex from '../../utility/Flex';
@@ -16,6 +16,7 @@ const NavItemContainer = styled.div`
   color:${props => props.theme.colors.secondaryLight};
   box-sizing: border-box;
   border-radius: ${props => props.theme.borderRadius.base};
+  background-color: ${props => props.isActive ? props.theme.colors.lightDark : "transparent"};
   cursor: pointer;
 
   &:hover {
@@ -43,15 +44,17 @@ const NavDropContainer = styled(NavItemContainer)`
 
 
 const NavLinkStyled = styled(NavLink)`
-  &.active {
-    background-color: ${props => props.theme.colors.lightDark}; 
-  }
 
   display: flex;
   align-items: center;
   gap: ${props => props.theme.padding.medium};
   color: ${props => props.theme.colors.secondaryLight};
   width: 100%;
+
+  &.active {
+    background-color: ${props => props.theme.colors.lightDark}; 
+  }
+
 
   &:hover {
     color:${props => props.theme.colors.secondaryLight};
@@ -93,14 +96,11 @@ const DropdownMenu = styled.div`
   }
 `;
 
-const NavItem = ({ icon, to, children, dropdownItems }) => {
+const NavItem = ({ icon, to, children, dropdownItems, link}) => {
 
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => {
-    
     setIsOpen(!isOpen)
-  
   };
 
   if (dropdownItems && dropdownItems.length > 0) {

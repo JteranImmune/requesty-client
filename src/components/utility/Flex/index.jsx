@@ -9,8 +9,8 @@ const Flex = styled(Box)`
   flex: ${props => props.flex || 'auto'};
   gap: ${props => props.theme.padding[props.gap] || '0'};
   align-self: ${props => props.alignSelf || 'auto'};
-  max-width: ${props => props.theme.containers[props.maxWidth] || 'unset'};
-  border-radius: ${props => props.borderRadius || '0'};
+  max-width: ${props => props.theme.containers[props.maxwidth] || 'unset'};
+  border-radius: ${props => props.borderradius || '0'};
   overflow:${props => props.overflow || 'inherit'};
   border: ${props => props.border || 'none'};;
 `;

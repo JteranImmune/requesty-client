@@ -1,7 +1,6 @@
 import React from "react";
 import Flex from "../../utility/Flex";
 import Text from "../../atoms/Text";
-import Divider from "../../atoms/Divider";
 import Button from "../../atoms/Button"
 import styled from "styled-components";
 
