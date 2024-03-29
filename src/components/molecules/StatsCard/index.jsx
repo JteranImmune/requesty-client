@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Text from '../../atoms/Text'; 
-// import StyledLink from './StyledLink'; 
+import Link from '../../atoms/Link'
 
 const CardContainer = styled.div`
     display: flex;
@@ -56,6 +56,9 @@ const StatsCard = ({ title, number, linkText, linkTo }) => (
         </CardContent>
         <CardAction>
             <CardActionContent>
+                {linkTo && (
+                    <Link to={linkTo}>{linkText}</Link>
+                )}
             </CardActionContent>
         </CardAction>
     </CardContainer>

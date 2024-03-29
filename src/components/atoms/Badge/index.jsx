@@ -2,40 +2,42 @@ import styled from "styled-components";
 
 const Badge = styled.div`
     display: flex;
-    padding: 0.25rem 0.75rem;
+    padding: ${({theme}) => theme.padding.xsmall} ${({theme}) => theme.padding.medium};
+    width: fit-content;
+    font-size: ${({theme}) => theme.font.text.sm};
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    border-radius: 2rem;
+    text-transform: capitalize;
     background-color: ${props => {
     switch (props.status) {
       case 'submitted':
-        return props.theme.colors.submitted; // Replace with your theme color or hex code
+        return props.theme.colors.status.submitted; 
       case 'in progress':
-        return props.theme.colors.inProgress; // Replace with your theme color or hex code
+        return props.theme.colors.status.inProgress; 
       case 'completed':
-        return props.theme.colors.completed; // Replace with your theme color or hex code
+        return props.theme.colors.status.completed; 
       case 'on hold':
-        return props.theme.colors.onHold; // Replace with your theme color or hex code
+        return props.theme.colors.status.onHold; 
       default:
-        return '#ccc'; // Default color if none of the conditions are met
+        return '#ccc'; 
     }
   }};
     color: ${props => {
     switch (props.status) {
       case 'submitted':
-        return props.theme.colors.submittedText; // Replace with your theme color or hex code
+        return props.theme.colors.status.submittedText; 
       case 'in progress':
-        return props.theme.colors.inProgressText; // Replace with your theme color or hex code
+        return props.theme.colors.status.inProgressText; 
       case 'completed':
-        return props.theme.colors.completedText; // Replace with your theme color or hex code
+        return props.theme.colors.status.completedText; 
       case 'on hold':
-        return props.theme.colors.onHoldText; // Replace with your theme color or hex code
+        return props.theme.colors.status.onHoldText; 
       default:
-        return '#ccc'; // Default color if none of the conditions are met
+        return '#ccc'; 
     }
-  }};
+  } 
+};
 `
 
 export default Badge;

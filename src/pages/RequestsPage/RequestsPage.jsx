@@ -4,14 +4,18 @@ import Flex from "../../components/utility/Flex";
 import HeaderPage from "../../components/organisms/HeaderPage/HeaderPage";
 import TaskList from "../../components/templates/TaskList";
 import ContentBox from "../../components/utility/ContentBox";
+import { useLoaderData } from 'react-router-dom'
 
 const Requests =  () => {
+
+    const tasks = useLoaderData();
+
     return (
         <ContentWrapper>
-            <HeaderPage>Request</HeaderPage>
+            <HeaderPage iconName='Faplus' buttonText='Create Task' onClick={()=>{}}>Requests</HeaderPage>
             <ContentBox padding="0 2rem">
                 <Flex>
-                    <TaskList />
+                    <TaskList data={tasks} />
                 </Flex>
             </ContentBox>
         </ContentWrapper>

@@ -39,18 +39,32 @@ const theme = {
       textColorLight: '#667085',
       backgroundColor: 'white',
 
-      //status bg
-      submitted: '#EAECF0',
-      inProgress: '#EFF8FF',
-      completed: '#ECFDF3',
-      onHold: '#FEF6EE',
+      status:{
+          //status bg
+          submitted: '#EAECF0',
+          inProgress: '#EFF8FF',
+          completed: '#ECFDF3',
+          onHold: '#FEF6EE',
+    
+          //status text
+          submittedText: '#344054',
+          inProgressText: '#175CD3',
+          completedText: '#027A48',
+          onHoldText: '#B93815',
+      },
 
-      //status text
-      submittedText: '#344054',
-      inProgressText: '#175CD3',
-      completedText: '#027A48',
-      onHoldText: '#B93815',
-    },
+      priority:{
+        //priority bg
+        high: '#fee2e2',
+        medium: '#fef9c3',
+        low: '#dcfce7',
+    
+        //priority text
+        highText: '#991b1b',
+        mediumText: '#175CD3',
+        lowText: '#027A48',
+        },
+      },
 
     // Typography
     font:{

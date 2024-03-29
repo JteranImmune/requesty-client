@@ -8,12 +8,12 @@ const sharedStyles = css`
 
 const Avatar = styled.img`
     ${sharedStyles}
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     flex-shrink: 0;
     border: 1.5px solid ${props => props.theme.colors.baseWhite};
 
-    ${props => props.variant === 'md' && css`
+    ${props => props.variant === 'lg' && css`
         ${sharedStyles}
         width: 3rem;
         height: 3rem;   

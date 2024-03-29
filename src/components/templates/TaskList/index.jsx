@@ -1,34 +1,32 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import Flex from "../../utility/Flex";
 import DataTable from "../../organisms/DataTable";
 // import taskList from "../../../tasks.json"
 import InputSearch from "../../molecules/InputSearch";
 import InputSelect from "../../molecules/InputSelect";
-import taskService from "../../../services/task.service";
 
-const TaskList = () =>{
+const TaskList = ({data}) =>{
     
-    const headings = ["ID","Title","Client","Status","Priority","Due Date", "Owner"]
+    const headings = ["Title","Client","Owner","Status","Priority","Created At","Due Date"]
     const statusList = ["submited","in progress","completed","on hold"]
 
-    const [tasks, setTask] = useState([])
     const [status, setstatus] = useState(statusList)
-      
+    
+    // const [tasks, setTask] = useState([])
+    // const getDashboardTask = async () => {
+    //         try {
+    //                 const task = await taskService.getAllTask();
 
-    const getDashboardTask = async () => {
-            try {
-                    const task = await taskService.getAllTask();
+    //                 if(task) setTask(task) 
 
-                    if(task) setTask(task) 
+    //             } catch (error) {
+    //                 console.error(error)
+    //         }
+    //     }
 
-                } catch (error) {
-                    console.error(error)
-            }
-        }
-
-    useEffect( ()=>{
-        getDashboardTask();
-    },[]) 
+    // useEffect( ()=>{
+    //     getDashboardTask();
+    // },[]) 
 
     return(
         <Flex direction="column"  gap="normal">
@@ -41,7 +39,7 @@ const TaskList = () =>{
                 </Flex>
             </Flex>
             <Flex direction="column" borderradius="0.5rem" overflow="auto" border="1px solid #EAECF0">
-                <DataTable data={tasks} headings={headings} title="Tasks"/>
+                <DataTable data={data} headings={headings} title="Tasks"/>
             </Flex>
         </Flex>
     )

@@ -4,6 +4,9 @@ import TableCell from "../TableCell";
 import Input from "../../atoms/Input"
 import Flex from "../../utility/Flex";
 import { FaPenSquare } from "react-icons/fa";
+import UserBox from "../UserBox";
+import Badge from '../../atoms/Badge'
+import Tag from "../../atoms/Tags";
 
 const TableRowWrapper = styled.tr`
     border-top:${props => props.theme.colors.border};
@@ -20,11 +23,26 @@ const TableRow = ({ dataRow, children, isInput }) => {
         
         const dataRowArray = Object.entries(dataRow);
 
+        const email = dataRowArray.find(([key, _]) => key === "email")?.[1];
+        const avatar = dataRowArray.find(([key, _]) => key === "avatar")?.[1];
+        const ownerImage = dataRowArray.find(([key, _]) => key === "owner")?.[1];
+        const ownerName = dataRowArray.find(([key, _]) => key === "ownerName")?.[1];
+
+        console.log(dataRowArray)
+
         return (
             <TableRowWrapper>
                 <TableCell padding="0 0.4rem"><Input type={"hidden"} hidden></Input></TableCell>
                     {dataRowArray.map(([key, value], index) => (
-                            <TableCell key={index}>{value}{console.log()}</TableCell>
+                            key === "_id" ? null :
+                            key === "avatar" ? null:
+                            key === "email" ? null:
+                            key === "ownerName" ? null:
+                            key === "status" ? <TableCell key={index}><Badge status={value}>{value}</Badge></TableCell>:
+                            key === "priority" ? <TableCell key={index}><Tag priority={value}>{value}</Tag></TableCell>:
+                            key === "name" ? <TableCell key={index}><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:
+                            key === "owner" ? <TableCell key={index}><UserBox name={ownerName} email={email} avatar={ownerImage}></UserBox></TableCell>:
+                            <TableCell key={index}>{value}</TableCell>
                         ))
                     }
                 <TableCell>

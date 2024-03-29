@@ -34,15 +34,6 @@ const SideBar = () =>{
                                 </NavItem>
                             )
                     })}
-                    <NavItem
-                        icon='FaUser'
-                        dropdownItems={[
-                            { to: '/team', label: 'Team', icon:'FaHome' },
-                            { to: '/clients', label: 'Clients', icon:'FaHome' },
-                        ]}
-                        >
-                        Users
-                    </NavItem>
                 </Flex>
             </Flex> 
         </Flex>

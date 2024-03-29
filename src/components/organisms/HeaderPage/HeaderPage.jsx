@@ -13,6 +13,7 @@ const HeaderWrapper = styled(Flex)`
     background: white;
     display: flex;
     flex-direction: column;
+    margin-bottom: ${({theme}) => theme.padding.large};
 `
 
 const HeaderStyled = styled(Flex)`
@@ -20,14 +21,14 @@ const HeaderStyled = styled(Flex)`
     padding: ${({ theme }) => theme.padding.medium} ${({ theme }) => theme.padding.large};
 `
 
-const HeaderPage = ({children, ...props}) =>{
+const HeaderPage = ({children, onClick, buttonText, iconName, ...props}) =>{
     return(
         <HeaderWrapper>
             <HeaderStyled justify="space-between">
                 <Text size="md" variant="display" weight="medium" {...props}>
                     {children}
                 </Text>
-                <Button iconName="FaPlus">Create Task</Button>
+                <Button iconName={iconName} onClick={onClick}>{buttonText}</Button>
             </HeaderStyled>
         </HeaderWrapper>
     )
