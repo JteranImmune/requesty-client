@@ -50,6 +50,22 @@ const ButtonStyled = styled.button`
   &:active {
     background-color:${props => props.theme.colors.primary};
   }
+
+  &:focus {
+    border: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #F4EBFF;
+  }
+
+  &:focus-visible {
+    border: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
+    outline: ${props => props.type === 'search' ? "0" : "1px"} solid ${props => props.theme.colors.primaryDark};
+  }
+
+  &:disabled {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+  }
 `
 
 const Button = ({children, iconName, variant, onClick}) =>{

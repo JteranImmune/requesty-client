@@ -105,6 +105,16 @@ const GlobalStyle = createGlobalStyle`
   [display="flex"] {display:flex}
   [gap="small"] {gap:0.5rem}
   [gap="medium"] {gap:0.75rem}
+
+  .calendar-popup{
+    position: absolute;
+    margin: 1rem 0 0 0;
+    border-radius: 14px;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+    top: 80px;
+    left: 0;
+  }
 `;
 
 export default GlobalStyle;

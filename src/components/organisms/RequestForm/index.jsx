@@ -1,55 +1,49 @@
-import React from "react";
-import styled from "styled-components";
-import InputField from '../../molecules/InputField'
-import Button from "../../atoms/Button";
+import { React, useState }from "react";
 import Flex from "../../utility/Flex";
 import Text from "../../atoms/Text";
-import Label from "../../atoms/Labels";
-import Avatar from "../../atoms/Avatar";
-import Icon from "../../atoms/Icon";
-import Input from "../../atoms/Input";
 import Divider from '../../atoms/Divider'
+import TaskInputField from '../../molecules/TaskInputField';
+import 'react-day-picker/dist/style.css';
+import CalendarPicker from "../CalendarPicker";
+import InputField from '../../molecules/InputField'
+import FilesInput from "../FilesInput";
+import Button from "../../atoms/Button";
 
-const InputStyle = styled.button`
-  width: ${props => props.width || '100%'};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  padding: ${({theme}) => theme.padding.medium} ${({theme}) => theme.padding.small};
-  font-size: ${props => props.theme.font.text.md};
-  gap: 0.5rem;
-  align-self: stretch;
-  border-radius:${({theme}) => theme.borderRadius.base};
-  border-color:'#EAECF0';
-  border: 1px solid #EAECF0;
-`
 
-const ListStyle = styled.ul`
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: ${({theme}) => theme.padding.xsmall};
-    padding: 0.5rem;
-    border-radius:${({theme}) => theme.borderRadius.base};
-    border: 1px solid #EAECF0;
-`
-
-const ListItem = styled.li`
-    list-style: none;
-    padding: ${({theme}) => theme.padding.medium} ${({theme}) => theme.padding.small};
-    border-radius:${({theme}) => theme.borderRadius.base};
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${props => props.theme.colors.baseWhite};
-    }
-`
-
+const clientList = ["Juan", "Pedro", "Ramiro"]
+const serviceslist = ["Design", "Development", "Video"]
 const priorityList = ["Low","Medium","High"]
 
+const TaskOptions = {
+    client: { 
+        list : clientList, 
+        placeholder:"Select a client",
+        label: "Client"
+     },
+     service: { 
+        list : serviceslist, 
+        placeholder:"Select a Service",
+        label: "Service"
+     },
+     priority: { 
+        list : priorityList, 
+        placeholder:"Select a priority",
+        label: "Priority"
+     },
+}
+
 const RequestForm = ({title, onChange, onSubmit, options, avatar, name, value}) =>{
+
+    const [activeDropdown, setActiveDropdown] = useState(null);
+
+    const toggleDropdown = (dropdownId) => {
+        if (activeDropdown === dropdownId) {
+            setActiveDropdown(null); 
+        } else {
+            setActiveDropdown(dropdownId); 
+        }
+    };
+
     return(
         <Flex direction='column'>
             <Text variant="display" size="sm" weight="medium">
@@ -57,30 +51,26 @@ const RequestForm = ({title, onChange, onSubmit, options, avatar, name, value}) 
             </Text>
             <Divider/>
             <form onSubmit={onSubmit} style={{marginTop:'1.8rem'}} > 
-                    <div>
-                        <Label for="client">Client</Label>
-                        <div>
-                            <InputStyle>
-                                <Flex gap="medium" align="center">
-                                    <Avatar src={avatar} alt={name} variant="sm"/>
-                                    <Text>Client name</Text>
-                                </Flex>
-                                <Icon iconName="FaAngleDown"/>
-                            </InputStyle>
-                            <div>
-                                <ListStyle>
-                                    <ListItem>
-                                        <Flex gap="medium" align="center">
-                                        <Avatar src={avatar} alt={name} variant="sm"/>
-                                        <Text>Client name</Text>
-                                        </Flex>
-                                    </ListItem>
-                                </ListStyle>
-                            </div>
-                            <Input type="hidden" value={value} name="client"></Input>
-                        </div>
-                    </div>
-        
+                <Flex gap="normal" direction="column">
+                    {Object.entries(TaskOptions).map(([key, option], index) =>
+                        <TaskInputField 
+                        label={option.label} 
+                        listItems={option.list} 
+                        placeholder={option.placeholder}
+                        key={index} 
+                        toggleDropdown={() => toggleDropdown(option.label)} 
+                        isOpen={activeDropdown === option.label} 
+                        />
+                    )}
+                    <CalendarPicker />
+                    <InputField label="Title" name="title" type="text" maxwidth="100%"/>
+                    <InputField label="Description" name="description" isTextArea={true} maxwidth="100%"/>
+                    <FilesInput/>
+                </Flex>
+                <Divider/>
+                <Flex justify="flex-end">
+                    <Button type="sumbit" iconName="FaPlus">Create Task</Button>
+                </Flex>
             </form>
         </Flex>
     )

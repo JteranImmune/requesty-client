@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 
 const InputStyled = styled.input`
-  width: ${props => props.width || '100%'};
+  width: ${props => props.width || 'auto'};
   height: ${props => props.type === 'checkbox' ? 'auto' : '1rem'};
   padding: ${props => props.type === 'checkbox' ? '0' : '0.8rem 0.5rem'};
   font-size: ${props => props.theme.font.text.md};
@@ -10,7 +10,7 @@ const InputStyled = styled.input`
   align-items: center;
   gap: 0.5rem;
   align-self: stretch;
-  border-radius:${props => props.type === 'search' ? '0' : '25px' || props.type === 'checkbox' ? '14px' : '25px'  };
+  border-radius:${({theme})=> theme.borderRadius.base};
   border-color:${props => props.type === 'checkbox' ? '#EAECF0' : '#EAECF0' } ;
   border: ${props => props.type === 'search' ? '0' : '1px'} solid #EAECF0;
 
@@ -38,9 +38,9 @@ const InputStyled = styled.input`
 
 `;
 
-const Input = ({type, placeHolder, name, id, children}) =>{
+const Input = ({type, placeHolder, name, id, children, ...props}) =>{
   return(
-    <InputStyled type={type} placeholder={placeHolder} name={name} id={id}>{children}</InputStyled>
+    <InputStyled type={type} placeholder={placeHolder} name={name} id={id} {...props}>{children}</InputStyled>
   )
 }
 
