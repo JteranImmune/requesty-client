@@ -28,21 +28,20 @@ const TableRow = ({ dataRow, children, isInput }) => {
         const ownerImage = dataRowArray.find(([key, _]) => key === "owner")?.[1];
         const ownerName = dataRowArray.find(([key, _]) => key === "ownerName")?.[1];
 
-        console.log(dataRowArray)
-
         return (
             <TableRowWrapper>
                 <TableCell padding="0 0.4rem"><Input type={"hidden"} hidden></Input></TableCell>
                     {dataRowArray.map(([key, value], index) => (
-                            key === "_id" ? null :
+                            key === "_id" ? null:
                             key === "avatar" ? null:
                             key === "email" ? null:
                             key === "ownerName" ? null:
-                            key === "status" ? <TableCell key={index}><Badge status={value}>{value}</Badge></TableCell>:
-                            key === "priority" ? <TableCell key={index}><Tag priority={value}>{value}</Tag></TableCell>:
-                            key === "name" ? <TableCell key={index}><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:
-                            key === "owner" ? <TableCell key={index}><UserBox name={ownerName} email={email} avatar={ownerImage}></UserBox></TableCell>:
-                            <TableCell key={index}>{value}</TableCell>
+                            key === "title" ? <TableCell key={index} truncate="ellipsis" isText>{value}</TableCell>:
+                            key === "status" ? <TableCell key={index} isElement><Badge status={value}>{value}</Badge></TableCell>:
+                            key === "priority" ? <TableCell key={index} isElement><Tag priority={value}>{value}</Tag></TableCell>:
+                            key === "name" ? <TableCell key={index} isElement><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:
+                            key === "owner" ? <TableCell key={index} isElement><UserBox name={ownerName} email={email} avatar={ownerImage}></UserBox></TableCell>:
+                            <TableCell key={index} isText >{value}</TableCell>
                         ))
                     }
                 <TableCell>

@@ -5,7 +5,7 @@ const Text = styled.p`
   font-size: ${props => {
     const { size, variant } = props;
     const fontSizeVariant = variant === 'display' ? 'display' : 'text';
-    return props.theme.font[fontSizeVariant][size] || '1em';
+    return props.theme.font[fontSizeVariant][size] || '1rem';
   }};
   color: ${props => props.theme.colors[props.color] || 'inherit'};
   font-weight: ${props => props.theme.font.weight[props.weight] || 'normal'};
@@ -15,6 +15,9 @@ const Text = styled.p`
   margin-right: ${props => props.theme.margin[props.marginRight] || '0'};
   text-transform: ${props => props.theme.font.styles[props.styles] || 'inherit'};
   letter-spacing: 0.8px;
+  line-height: 1.3;
+  text-overflow: ${props => props.truncate || 'inherit'};
+  overflow: ${props => props.overflow || 'inherit'};
 `;
 
 export default Text;

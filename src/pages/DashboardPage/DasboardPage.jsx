@@ -2,21 +2,15 @@ import React from "react";
 import ContentWrapper from "../../components/utility/ContentWrapper/ContentWrapper";
 import Flex from "../../components/utility/Flex";
 import HeaderPage from "../../components/organisms/HeaderPage/HeaderPage";
-import TaskList from "../../components/templates/TaskList";
+import TaskList from "../../components/organisms/TaskList";
 import ContentBox from "../../components/utility/ContentBox";
 import StatsCard from "../../components/molecules/StatsCard"
+import convertAvatarToObject from "../../components/utility/ConvertAvatar";
 import { useLoaderData } from "react-router-dom";
 
-const Dasboard =  () => {
+const DasboardPage =  () => {
 
     const tasks = useLoaderData();
-
-    const convertAvatarToObject = (userData) => {
-        return {
-            ...userData,
-            avatar: [userData.avatar] // Convert avatar url to an array containing the url
-        };
-    };
     
     const modifiedTask = tasks.map(task => convertAvatarToObject(task));
 
@@ -24,7 +18,7 @@ const Dasboard =  () => {
 
     return (
         <ContentWrapper>
-            <HeaderPage iconName='Faplus' buttonText='Create Task' onClick={()=>{}}>Dashboard</HeaderPage>
+            <HeaderPage iconName='Faplus' buttonText='Create Task' onClick={()=>{}} showButton={false}>Dashboard</HeaderPage>
             <ContentBox padding="0 2rem">
                 <Flex gap="large" padding="1rem 0">
                     <StatsCard title={"Total Requests"} number={totalTask} linkTo={"/requests"} linkText={"View All"}> </StatsCard>
@@ -38,4 +32,4 @@ const Dasboard =  () => {
     )
 };
 
-export default Dasboard;
+export default DasboardPage;

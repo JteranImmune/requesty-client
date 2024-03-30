@@ -127,10 +127,10 @@ const theme = {
         default:"100%",
         sidebar: '17.5rem',    
         xsm: '20rem',    
-        sm: '40rem',
-        md: '48rem',
-        lg: '64rem',
-        xl: '80rem',
+        sm: '48rem',
+        md: '60rem',
+        lg: '80rem',
+        xl: '96rem',
     },
 
     // Paddings

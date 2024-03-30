@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Flex from "../Flex";
 
 const BoxContainer = styled(Flex)`
-  max-width: 1536px;
+  max-width:  ${props => props.theme.containers[props.container] || '96rem'};
   display: block;
   margin-left: auto;
   margin-right: auto;

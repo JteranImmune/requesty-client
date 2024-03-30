@@ -1,6 +1,6 @@
 import { React } from "react";
 import Flex from "../../utility/Flex";
-import DataTable from "../../organisms/DataTable";
+import DataTable from "../DataTable";
 import InputSearch from "../../molecules/InputSearch";
 
 const UserTeamList = ({data}) =>{

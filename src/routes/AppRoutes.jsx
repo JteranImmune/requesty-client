@@ -1,11 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
-import Dasboard from "../pages/DashboardPage/DasboardPage";
+import DasboardPage from "../pages/DashboardPage/DasboardPage";
 import TeamList from "../pages/TeamPage/TeamPage";
-import Requests from "../pages/RequestsPage/RequestsPage";
+import RequestsPage from "../pages/RequestsPage/RequestsPage";
 import LoaderRequestPage from "../pages/RequestsPage/LoaderRequestPage";
 import LoaderDashboardPage from "../pages/DashboardPage/LoaderDashboardPage";
 import LoaderTeamPage from "../pages/TeamPage/LoaderTeamPage";
+import CreateRequestPage from "../pages/CreateRequestPage/CreateRequestPage";
 
 const AppRoutes = () => {
     const router = createBrowserRouter([
@@ -14,17 +15,18 @@ const AppRoutes = () => {
                 element: <MainLayout/>,
                 children: [{
                     path: "/",
-                    element:<Dasboard/>,
+                    element:<DasboardPage/>,
                     loader: LoaderDashboardPage
                 },
                 {
                     path: "/requests",
-                    element:<Requests />,
+                    element:<RequestsPage />,
                     loader:LoaderRequestPage
                 },
                 {
-                    path: "task/create",
-                    element: <div>Create</div>
+                    path: "request/create",
+                    element: <CreateRequestPage />,
+                    // loader: LoaderCreateRequestPage
                 },
                 {
                     path: '/services',

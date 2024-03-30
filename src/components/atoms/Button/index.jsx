@@ -7,7 +7,7 @@ import Icon from "../../atoms/Icon"
 
 const ButtonStyled = styled.button`
   display: inline-flex;
-  padding: ${props => props.theme.padding.medium} ${props => props.theme.padding.normal};
+  padding: ${props => props.theme.padding.small} ${props => props.theme.padding.normal};
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
@@ -55,7 +55,7 @@ const ButtonStyled = styled.button`
 const Button = ({children, iconName, variant, onClick}) =>{
   return(
     <ButtonStyled variant={variant} onClick={onClick}>
-      <Icon iconName={iconName}></Icon>
+      <Icon iconName={iconName}/>
       <Text weight="normal">{children}</Text>
     </ButtonStyled>
   )

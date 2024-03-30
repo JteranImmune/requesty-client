@@ -12,11 +12,12 @@ const TableCellItem = styled.td`
 
 `
 
-const TableCell =  ({children, ...props}) => {
+const TableCell =  ({children, isElement, isText, ...props}) => {
     return (
         <TableCellItem role="table-cell" {...props}>
             <Box padding="1rem 0">
-                    {children}
+                {isText && <Text {...props}>{children}</Text>}
+                {isElement && <div>{children}</div>}
             </Box>
         </TableCellItem>
     )

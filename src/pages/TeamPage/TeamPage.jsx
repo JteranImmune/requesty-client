@@ -4,25 +4,18 @@ import Flex from "../../components/utility/Flex";
 import HeaderPage from "../../components/organisms/HeaderPage/HeaderPage";
 import ContentBox from "../../components/utility/ContentBox";
 import { useLoaderData } from "react-router-dom";
-import UserTeamList from "../../components/templates/UsersTeamList";
+import UserTeamList from "../../components/organisms/UsersTeamList";
+import convertAvatarToObject from "../../components/utility/ConvertAvatar";
 
 const TeamList =  () => {
 
     const user = useLoaderData();
     
-    
-    const convertAvatarToObject = (userData) => {
-        return {
-            ...userData,
-            avatar: [userData.avatar.url] // Convert avatar url to an array containing the url
-        };
-    };
-    
     const modifiedUsers = user.map(user => convertAvatarToObject(user));
 
     return (
         <ContentWrapper>
-            <HeaderPage iconName='Faplus' buttonText='Create Team User' onClick={()=>{}}>Team</HeaderPage>
+            <HeaderPage iconName='FaUserPlus' buttonText='Add' onClick={()=>{}} showButton>Team</HeaderPage>
             <ContentBox padding="0 2rem">
                 <Flex>
                     <UserTeamList data={modifiedUsers}/>
