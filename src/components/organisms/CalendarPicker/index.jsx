@@ -8,28 +8,36 @@ import 'react-day-picker/dist/style.css';
 import Input from '../../atoms/Input'
 import Icon from "../../atoms/Icon";
 
-const CalendarPicker = () =>{
-
+const CalendarPicker = ({onChange}) =>{
     
     const [isCalendarOpen, setisCalendarOpen] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(undefined);
+    const [selectedDate, setSelectedDate] = useState(new Date()); // Initialize with a default value
+    
+    const handleSelect = (selectedDay) => {
+        setSelectedDate(selectedDay);
+        setisCalendarOpen(false); // Close the picker upon selection
 
-
-    const handleDayClick = (day) => {
-        setSelectedDate(day);
-        setisCalendarOpen(!isCalendarOpen);
-        console.log("Dia elegido")
+        const event = {
+            target: {
+                name: selectedDay,
+                value: selectedDay.value
+            }
+        };
+        onChange(event);
     };
-
+    
     const toggleDatePicker = () => setisCalendarOpen(!isCalendarOpen);
 
     const { inputProps, dayPickerProps } = useInput({
-        defaultSelected: new Date(),
-        onDayChange: handleDayClick,
+        defaultSelected: selectedDate,
+        // onChange: handleSelect,
+        onDayChange: handleSelect,
+        onDayClick: handleSelect,
+        onSelect: handleSelect,
         fromYear: 2024,
         toYear: 2025,
-        format: 'yyyy-MM-dd',
-      });
+        format: 'yyyy-MM-dd',     
+    });
 
       function isPastDate(date) {
         return differenceInCalendarDays(date, new Date()) < 0;
@@ -43,11 +51,13 @@ const CalendarPicker = () =>{
 
     return(
         <Flex direction="column" maxwidth="xsm">
-        <Label for="DueDate">Due Date</Label>  
+        <Label for="dueDate">Due Date</Label>  
         <Flex gap="medium">             
             <Input 
-                type="text" 
-                name="DueDate" 
+                type="date" 
+                name="dueDate"
+                id="dueDate" 
+                onChange= {handleSelect}               
                 {...inputProps}
             /> 
             <Flex gap="small" align="center">
@@ -63,7 +73,7 @@ const CalendarPicker = () =>{
                     components={{ Row: OnlyFutureRow }}
                     hidden={isPastDate}
                     showOutsideDays
-                    onDayClick={handleDayClick}
+                    onChange= {handleSelect}
                     {...dayPickerProps}
                 />
             </div>   

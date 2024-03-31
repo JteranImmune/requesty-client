@@ -7,6 +7,7 @@ import { FaPenSquare } from "react-icons/fa";
 import UserBox from "../UserBox";
 import Badge from '../../atoms/Badge'
 import Tag from "../../atoms/Tags";
+import Link from "../../atoms/Link";
 
 const TableRowWrapper = styled.tr`
     border-top:${props => props.theme.colors.border};
@@ -27,6 +28,7 @@ const TableRow = ({ dataRow, children, isInput }) => {
         const avatar = dataRowArray.find(([key, _]) => key === "avatar")?.[1];
         const ownerImage = dataRowArray.find(([key, _]) => key === "owner")?.[1];
         const ownerName = dataRowArray.find(([key, _]) => key === "ownerName")?.[1];
+        const ownerId = dataRowArray.find(([key, _]) => key === "_id")?.[1];
 
         return (
             <TableRowWrapper>
@@ -36,7 +38,7 @@ const TableRow = ({ dataRow, children, isInput }) => {
                             key === "avatar" ? null:
                             key === "email" ? null:
                             key === "ownerName" ? null:
-                            key === "title" ? <TableCell key={index} truncate="ellipsis" isText>{value}</TableCell>:
+                            key === "title" ? <TableCell key={index} truncate="ellipsis" isText><Link to={`/request/${ownerId}`} key={ownerId}>{value}</Link></TableCell>:
                             key === "status" ? <TableCell key={index} isElement><Badge status={value}>{value}</Badge></TableCell>:
                             key === "priority" ? <TableCell key={index} isElement><Tag priority={value}>{value}</Tag></TableCell>:
                             key === "name" ? <TableCell key={index} isElement><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:

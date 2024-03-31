@@ -6,23 +6,17 @@ function FilesInput() {
         attachments: []
     });
   
-    const updateUploadedFiles = (files) =>
-    setNewTaskImages({ ...newTaskImages, attachments: files });
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-    };
+    const updateUploadedFiles = (attachments) =>
+    setNewTaskImages({ ...newTaskImages, attachments: attachments });
   
     return (
       <div>
-        <form onSubmit={handleSubmit}>
           <FilesUpload
             accept=".jpg,.png,.jpeg,.svg"
             label="Attachment(s)"
             multiple
             updateFilesCb={updateUploadedFiles}
           />
-        </form>
       </div>
     );
   }

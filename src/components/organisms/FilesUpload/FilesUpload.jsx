@@ -28,7 +28,7 @@ const FilesUpload = ({
   ...otherProps
 }) => {
   const fileInputField = useRef(null);
-  const [files, setFiles] = useState({});
+  const [attachments, setFiles] = useState({});
 
   const handleUploadBtnClick = () => {
     fileInputField.current.click();
@@ -40,14 +40,14 @@ const FilesUpload = ({
         if (!otherProps.multiple) {
           return { file };
         }
-        files[file.name] = file;
+        attachments[file.name] = file;
       }
     }
-    return { ...files };
+    return { ...attachments };
   };
 
-  const callUpdateFilesCb = (files) => {
-    const filesAsArray = convertNestedObjectToArray(files);
+  const callUpdateFilesCb = (attachments) => {
+    const filesAsArray = convertNestedObjectToArray(attachments);
     updateFilesCb(filesAsArray);
   };
 
@@ -61,9 +61,9 @@ const FilesUpload = ({
   };
 
   const removeFile = (fileName) => {
-    delete files[fileName];
-    setFiles({ ...files });
-    callUpdateFilesCb({ ...files });
+    delete attachments[fileName];
+    setFiles({ ...attachments });
+    callUpdateFilesCb({ ...attachments });
   };
 
   return (
@@ -73,7 +73,7 @@ const FilesUpload = ({
         <DragDropText>Drag and drop your files anywhere or</DragDropText>
         <UploadFileBtn type="button" onClick={handleUploadBtnClick}>
           <Icon iconName="FaUpload"/>
-          <span> Upload {otherProps.multiple ? "files" : "a file"}</span>
+          <span> Upload {otherProps.multiple ? "attachments" : "a file"}</span>
         </UploadFileBtn>
         <FormField
           type="file"
@@ -81,14 +81,15 @@ const FilesUpload = ({
           onChange={handleNewFileUpload}
           title=""
           value=""
+          name="attachments"
           {...otherProps}
         />
       </FileUploadContainer>
       <FilePreviewContainer>
         <span>To Upload</span>
         <PreviewList>
-          {Object.keys(files).map((fileName, index) => {
-            let file = files[fileName];
+          {Object.keys(attachments).map((fileName, index) => {
+            let file = attachments[fileName];
             let isImageFile = file.type.split("/")[0] === "image";
             return (
               <PreviewContainer key={fileName}>

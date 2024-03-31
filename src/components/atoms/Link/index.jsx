@@ -36,9 +36,9 @@ const StyledLink = styled(RouterLink)`
   `}
 `;
 
-const Link = ({to, children, isButton, iconName}) =>{
+const Link = ({to, children, isButton, iconName, ...props}) =>{
   return (
-    <StyledLink to={to} isButton={isButton}>
+    <StyledLink to={to} isButton={isButton} {...props}>
       <Icon iconName={iconName}></Icon>
       <Text>{children}</Text>
     </StyledLink>

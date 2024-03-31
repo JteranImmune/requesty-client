@@ -9,6 +9,11 @@ class TaskService extends AxiosConfig{
        const response = await this.axios.get('/dashboard');
        return response.data;
     }
+     
+    async createNewTask(data){
+       const response = await this.axios.post('/create', data);
+       return response.data;
+    }
 }
 
 export default new TaskService();

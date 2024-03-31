@@ -55,20 +55,31 @@ const ListItem = styled.li`
 `
 
 
-const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, isOpen}) =>{
+const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, isOpen, onChange}) =>{
 
     // const [isOpen, setIsOpen] = useState(false);
 
     const [selectedItem, setSelectedItem] = useState(placeholder);
-    
-    const handleItemClick = (item) => {
+    const [selectedId, setselectedId] = useState('');
+    // const [selectedName, setselectedName] = useState('');
+
+    const handleItemClick = (item, itemId) => {
         setSelectedItem(item); 
         toggleDropdown(label);
+        setselectedId(itemId);
+        
+        const event = {
+            target: {
+                name: label,
+                value: itemId 
+            }
+        };
+        onChange(event);
     };
 
-    return(
+        return(
         <Flex direction="column">
-            <Label for={label}>{label}</Label>
+            <Label htmlFor={label}>{label}</Label>
             <div>   
                 <InputStyle onClick={() => toggleDropdown(label)}>
                     <Flex gap="medium" align="center">
@@ -80,8 +91,8 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
                 </InputStyle>
                 <ListWrapper>
                     <ListStyle isOpen={isOpen}>
-                        {listItems.map((item, index) => (
-                                <ListItem key={index} onClick={() => handleItemClick(item)}>
+                        {listItems.map(({id, name}, index) => (
+                                <ListItem key={index} onClick={() => handleItemClick(name, id)}>
                                     {/* {avatar && 
                                         <Flex gap="medium" align="center">
                                             <Avatar src={item.avatar} alt={item.name} variant="sm"/>
@@ -89,14 +100,23 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
                                         </Flex>
                                     } */}
                                     <Flex gap="medium" align="center">
-                                        <Text>{item}</Text>
+                                        <Text>{name}</Text>
                                     </Flex>
                                 </ListItem>
                             ))
                         }
                     </ListStyle>
                 </ListWrapper>
-                <Input type="hidden" value={selectedItem} name={label}></Input>
+                <select 
+                    onChange={onChange} 
+                    name={label} 
+                    value={selectedId} 
+                    hidden
+                    // style={{ display: 'none' }} // Hide the select element
+                >
+                    <option value="" name=""></option>
+                    {listItems.map(({ id, name }) => (<option value={id} key={id} name={name}>{name}</option>))}
+                </select>
             </div>
         </Flex>
     )
