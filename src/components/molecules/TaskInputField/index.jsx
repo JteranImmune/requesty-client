@@ -5,7 +5,7 @@ import Text from "../../atoms/Text";
 import Label from "../../atoms/Labels";
 // import Avatar from "../../atoms/Avatar";
 import Icon from "../../atoms/Icon";
-import Input from "../../atoms/Input";
+
 
 const InputStyle = styled.button.attrs({ type: 'button' })`
   width: ${props => props.width || '100%'};
@@ -17,9 +17,12 @@ const InputStyle = styled.button.attrs({ type: 'button' })`
   font-size: ${props => props.theme.font.text.md};
   gap: 0.5rem;
   align-self: stretch;
-  border-radius:${({theme}) => theme.borderRadius.base};
-  border-color:'#EAECF0';
-  border: 1px solid #EAECF0;
+  border-radius:${({theme})=> theme.borderRadius.base};
+  border-color:${props => props.type === 'button' ? '#EAECF0' : '#EAECF0' } ;
+  border: ${props => props.isEditable ? '1px solid #EAECF0' : 'none'};
+  background-color: ${props => props.isEditable ? '#FFF' : '#f9fafb'};
+  color: ${props => props.isEditable ? 'inherit' : '#495057'};
+  cursor: ${props => props.isEditable ? 'text' : 'default'};
 `
 
 const ListWrapper = styled.div`
@@ -55,7 +58,7 @@ const ListItem = styled.li`
 `
 
 
-const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, isOpen, onChange}) =>{
+const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, isOpen, isEditable, onChange}) =>{
 
     // const [isOpen, setIsOpen] = useState(false);
 
@@ -70,7 +73,7 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
         
         const event = {
             target: {
-                name: label,
+                name: label.toLowerCase(),
                 value: itemId 
             }
         };
@@ -81,13 +84,14 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
         <Flex direction="column">
             <Label htmlFor={label}>{label}</Label>
             <div>   
-                <InputStyle onClick={() => toggleDropdown(label)}>
+                <InputStyle onClick={isEditable ? () => toggleDropdown(label) : () => {}} isEditable={isEditable}>
                     <Flex gap="medium" align="center">
                         {/* <Avatar src={avatar} alt={listItems.name} variant="sm"/> */}
                         {selectedItem && <Text>{selectedItem}</Text>}
                         {!selectedItem && <Text>{placeholder}</Text>}
                     </Flex>
-                    <Icon iconName="FaAngleDown"/>
+                    {isEditable && <Icon iconName="FaAngleDown"/>}
+                    {!isEditable && <Icon/>}
                 </InputStyle>
                 <ListWrapper>
                     <ListStyle isOpen={isOpen}>
@@ -107,7 +111,7 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
                         }
                     </ListStyle>
                 </ListWrapper>
-                <select 
+                {/* <select 
                     onChange={onChange} 
                     name={label} 
                     value={selectedId} 
@@ -116,7 +120,7 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
                 >
                     <option value="" name=""></option>
                     {listItems.map(({ id, name }) => (<option value={id} key={id} name={name}>{name}</option>))}
-                </select>
+                </select> */}
             </div>
         </Flex>
     )

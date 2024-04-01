@@ -15,7 +15,7 @@ const Text = styled.p`
   margin-right: ${props => props.theme.margin[props.marginRight] || '0'};
   text-transform: ${props => props.theme.font.styles[props.styles] || 'inherit'};
   letter-spacing: 0.8px;
-  line-height: 1.3;
+  line-height: inherit;
   text-overflow: ${props => props.truncate || 'inherit'};
   overflow: ${props => props.overflow || 'inherit'};
 `;

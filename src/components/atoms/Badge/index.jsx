@@ -5,6 +5,7 @@ const Badge = styled.div`
     padding: ${({theme}) => theme.padding.xsmall} ${({theme}) => theme.padding.medium};
     width: fit-content;
     font-size: ${({theme}) => theme.font.text.sm};
+    font-weight: 600;
     justify-content: center;
     align-items: center;
     border-radius: 2rem;

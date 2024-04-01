@@ -4,19 +4,18 @@ import { useParams } from "react-router-dom";
 import requestService from "../../services/request.service";
 import {REQUEST_DETAILS_MOCK} from '../../consts'
 import RequestDetails from "../../components/organisms/RequestDetails";
-import LoaderRequestSinglePage from "./LoaderRequestSinglePage"
-import Flex from "../../components/utility/Flex";
-import Button from "../../components/atoms/Button";
+import LoaderRequestSinglePage from "../SingleRequestPage/LoaderRequestSinglePage";
 
 const SingleRequestPage =  () => {
 
     const [data, setData] = useState({teamList: null });
     const [request, setRequest] = useState(REQUEST_DETAILS_MOCK);
-    const [isEditable, setIsEditable] = useState(false)
 
-    const handleEditClick = () =>{
-        setIsEditable(current => !current)
-    }
+    // const [isEditable, setIsEditable] = useState(false)
+
+    // const handleEditClick = () =>{
+    //     setIsEditable(current => !current)
+    // }
 
     useEffect(() => {
         const loadData = async () => {
@@ -56,15 +55,9 @@ const SingleRequestPage =  () => {
        getSingleRequest()
     },[])
 
-    console.log(request)
-
-
     return (
-        <PageLayout title={'Request Details'} iconName="FaEdit" buttonText={"Edit Request"} LinkTo={`/request/edit/${request._id}`} showLink>
-            <RequestDetails options={data} requestDetails={request}/>
-            <Flex justify="flex-end" gap="normal">
-                <Button type="sumbit" variant={"secondary"}>Save</Button>
-            </Flex>
+        <PageLayout title={'Edit Request Details'}>
+            <RequestDetails options={data} requestDetails={request} isEditable/>
         </PageLayout>
     )
 };

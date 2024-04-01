@@ -1,9 +1,10 @@
-import taskService from "../../services/task.service";
+import requestService from "../../services/request.service";
 
 const LoaderRequestPage = async () =>{
-    const task = await taskService.getAllTask(); 
+    
+    const request = await requestService.getAllRequest(); 
 
-    return task;
+    return request;
 }
 
 export default LoaderRequestPage;

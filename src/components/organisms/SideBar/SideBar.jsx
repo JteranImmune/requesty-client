@@ -2,15 +2,9 @@ import Text from '../../atoms/Text';
 import Flex from '../../utility/Flex';
 import { Link } from 'react-router-dom';
 import NavItem from './../../molecules/NavItem'
+import { NAVIGATION_LINKS } from '../../../consts';
 
 const SideBar = () =>{
-
-    const NAVIGATION_LINK = [
-        {link: "/", text:"Dashboard", dropdown:"false", icon:"FaHome", dropdownItems:[{}]},
-        {link: "/requests", text:"Requests", dropdown:"false", icon:"FaListUl", dropdownItems:[{}]},
-        {link: "/users", text:"Users", dropdown:"true", icon:"FaUser", dropdownItems: [{ to: '/team', label: 'Team'},{ to: '/clients', label: 'Clients'}] },
-        {link: "/services", text:"Services", dropdown:"true", icon:"FaThLarge", dropdownItems:[{ to: '/createSerice', label: 'Create Service'},{ to: '/allServices', label: 'All Services'}] },
-    ]
 
     return (
         <Flex direction="column" justify="space-between" bg="dark" maxwidth="sidebar" height="100vh" className='sideBar'>
@@ -21,7 +15,7 @@ const SideBar = () =>{
                     </Link>
                 </Flex>
                 <Flex direction="column" justify="flex-start" gap="small" padding="0rem 1rem" > 
-                    {NAVIGATION_LINK.map(({link , text , dropdown, icon, dropdownItems}) =>{
+                    {NAVIGATION_LINKS.map(({link , text , dropdown, icon, dropdownItems}) =>{
                             return (
                                 <NavItem
                                     to={link}

@@ -61,7 +61,7 @@ const theme = {
     
         //priority text
         highText: '#991b1b',
-        mediumText: '#175CD3',
+        mediumText: '#854d0e',
         lowText: '#027A48',
         },
       },

@@ -11,6 +11,9 @@ import LoaderClientPage from "../pages/ClientsPage/LoaderClientPage";
 import CreateRequestPage from "../pages/CreateRequestPage/CreateRequestPage";
 import LoaderCreateRequestPage from "../pages/CreateRequestPage/LoaderCreateRequestPage";
 import SingleRequestPage from "../pages/SingleRequestPage/SingleRequestPage";
+import LoaderRequestSinglePage from "../pages/SingleRequestPage/LoaderRequestSinglePage";
+import LoaderEditRequestSinglePage from "../pages/EditSingleRequestPage/LoaderEditSingleRequestPage";
+import EditSingleRequestPage from '../pages/EditSingleRequestPage/EditSingleRequestPage'
 
 const AppRoutes = () => {
     const router = createBrowserRouter([
@@ -35,7 +38,12 @@ const AppRoutes = () => {
                 {
                     path: "request/:id",
                     element: <SingleRequestPage />,
-                    // loader: LoaderCreateRequestPage
+                    loader: LoaderRequestSinglePage
+                },
+                {
+                    path: "request/edit/:id",
+                    element: <EditSingleRequestPage />,
+                    loader: LoaderEditRequestSinglePage
                 },
                 {
                     path: '/services',

@@ -2,10 +2,9 @@ import { React } from "react";
 import Flex from "../../utility/Flex";
 import DataTable from "../DataTable";
 import InputSearch from "../../molecules/InputSearch";
+import { CLIENTS_HEADINGS } from "../../../consts";
 
 const ClientList = ({data}) =>{
-    
-    const headings = ["Name","Created At"] 
 
     return(
         <Flex direction="column"  gap="normal">
@@ -15,7 +14,7 @@ const ClientList = ({data}) =>{
                 </Flex>
             </Flex>
             <Flex direction="column" borderradius="0.5rem" overflow="auto" border="1px solid #EAECF0">
-                <DataTable data={data} headings={headings} title="Client Users"/>
+                <DataTable data={data} headings={CLIENTS_HEADINGS} title="Client Users"/>
             </Flex>
         </Flex>
     )

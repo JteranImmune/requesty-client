@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${(props) => props.theme.font.family} , sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.3;
         color: ${(props) => props.theme.colors.textColor};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

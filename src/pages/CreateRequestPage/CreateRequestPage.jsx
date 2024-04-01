@@ -1,42 +1,31 @@
 import React, { useState, useEffect } from "react";
-import ContentWrapper from "../../components/utility/ContentWrapper/ContentWrapper";
-import HeaderPage from "../../components/organisms/HeaderPage/HeaderPage";
-import ContentBox from "../../components/utility/ContentBox";
-import { useLoaderData } from "react-router-dom";
 import RequestForm from "../../components/organisms/RequestForm";
 import LoaderCreateRequestPage from './LoaderCreateRequestPage';
-import taskService from "../../services/task.service";
+import requestService from "../../services/request.service";
+import PageLayout from "../../components/templates/PageTemplate";
+import { REQUEST_CREATE_LIST } from '../../consts'
 
 
 const CreateRequestPage = () =>{
 
-    const [data, setData] = useState({ clientList: null, serviceList: null });
+    const [data, setData] = useState({ clientList: null, serviceList: null, teamList: null });
 
     useEffect(() => {
         const loadData = async () => {
-            const { clientList, serviceList } = await LoaderCreateRequestPage();
-            setData({ clientList, serviceList });
+            const { clientList, serviceList, teamList } = await LoaderCreateRequestPage();
+            setData({ clientList, serviceList, teamList });
         };
 
         loadData();
     }, []);
 
-    const [taskData, setTaskData] = useState({
-        client:'',
-        service:'',
-        priority:'',
-        dueDate: '',
-        title:'',
-        description:'',
-        attachments:[],
-    })
+    const [requestData, setRequestData] = useState(REQUEST_CREATE_LIST)
 
     const onSubmit = async (e) =>{
 
         try {
             e.preventDefault();
-            console.log('Create', taskData)
-            await taskService.createNewTask(taskData);
+            await requestService.createNewRequest(requestData);
             
         } catch (error) {
             console.error(error);
@@ -44,21 +33,15 @@ const CreateRequestPage = () =>{
     }
 
     const onChange = (e) =>{
-
         const { name, value } = e.target;
-        setTaskData({ ...taskData, [name]:value});
+        setRequestData({ ...requestData, [name]:value});
     }
-
-    console.log(taskData)
 
 
     return(
-        <ContentWrapper>
-            <HeaderPage>New Request</HeaderPage>
-            <ContentBox container="sm">
-                <RequestForm title={"Request Information"} options={data} onSubmit={onSubmit} onChange={onChange}></RequestForm>
-            </ContentBox>
-        </ContentWrapper>
+        <PageLayout title={'New Request'} container="sm">
+            <RequestForm title={"Request Information"} options={data} onSubmit={onSubmit} onChange={onChange}></RequestForm>
+        </PageLayout>
     )
 
 }

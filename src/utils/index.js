@@ -1,0 +1,13 @@
+export const capitalizedFirstLetter = (text) =>{
+  if (text.charAt(0) === text.charAt(0).toUpperCase()) {
+    return text;
+  } else {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+}
+
+export const capitalizeText = (text) => {
+    const parsedText = text.split("_").join(" ")
+    const capitalizedFirstLetter = parsedText[0].toUpperCase()
+    return `${capitalizedFirstLetter}${parsedText.slice(1)}`
+  }

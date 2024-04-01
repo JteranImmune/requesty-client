@@ -9,6 +9,7 @@ const Tag = styled.div`
     align-items: center;
     border-radius: 2rem;
     text-transform: capitalize;
+    font-weight: 600;
     color: ${props => {
     switch (props.priority) {
       case 'High':

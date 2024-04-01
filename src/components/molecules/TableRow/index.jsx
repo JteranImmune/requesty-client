@@ -25,10 +25,12 @@ const TableRow = ({ dataRow, children, isInput }) => {
         const dataRowArray = Object.entries(dataRow);
 
         const email = dataRowArray.find(([key, _]) => key === "email")?.[1];
-        const avatar = dataRowArray.find(([key, _]) => key === "avatar")?.[1];
+        const avatar = dataRowArray.find(([key, _]) => key === "avatar")?.[1]?.[0];
         const ownerImage = dataRowArray.find(([key, _]) => key === "owner")?.[1];
         const ownerName = dataRowArray.find(([key, _]) => key === "ownerName")?.[1];
-        const ownerId = dataRowArray.find(([key, _]) => key === "_id")?.[1];
+        const requestId = dataRowArray.find(([key, _]) => key === "_id")?.[1];
+
+        console.log(dataRowArray)
 
         return (
             <TableRowWrapper>
@@ -38,12 +40,12 @@ const TableRow = ({ dataRow, children, isInput }) => {
                             key === "avatar" ? null:
                             key === "email" ? null:
                             key === "ownerName" ? null:
-                            key === "title" ? <TableCell key={index} truncate="ellipsis" isText><Link to={`/request/${ownerId}`} key={ownerId}>{value}</Link></TableCell>:
+                            key === "title" ? <TableCell key={index} truncate="ellipsis" isText><Link to={`/request/${requestId}`} key={requestId}>{value}</Link></TableCell>:
                             key === "status" ? <TableCell key={index} isElement><Badge status={value}>{value}</Badge></TableCell>:
                             key === "priority" ? <TableCell key={index} isElement><Tag priority={value}>{value}</Tag></TableCell>:
-                            key === "name" ? <TableCell key={index} isElement><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:
                             key === "owner" ? <TableCell key={index} isElement><UserBox name={ownerName} email={email} avatar={ownerImage}></UserBox></TableCell>:
-                            <TableCell key={index} isText >{value}</TableCell>
+                            key === "name" ? <TableCell key={index} isElement><UserBox name={value} email={email} avatar={avatar}></UserBox></TableCell>:
+                            <TableCell key={index} isText>{value}</TableCell>
                         ))
                     }
                 <TableCell>

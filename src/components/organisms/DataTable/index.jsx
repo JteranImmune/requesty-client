@@ -21,7 +21,7 @@ const TableHead = styled.thead`
 `
 
 
-const DataTable = ({headings , data, rowsPerPage = 4}) => {
+const DataTable = ({headings , data, rowsPerPage = 5}) => {
 
     
     const [currentPage, setCurrentPage] = useState(0);

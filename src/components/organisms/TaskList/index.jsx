@@ -4,13 +4,14 @@ import DataTable from "../DataTable";
 // import taskList from "../../../tasks.json"
 import InputSearch from "../../molecules/InputSearch";
 import InputSelect from "../../molecules/InputSelect";
+import { 
+    REQUESTS_HEADINGS, 
+    STATUS_LIST 
+} from "../../../consts";
 
 const TaskList = ({data}) =>{
-    
-    const headings = ["Title","Client","Owner","Status","Priority","Created At","Due Date"]
-    const statusList = ["submited","in progress","completed","on hold"]
 
-    const [status, setstatus] = useState(statusList)
+    const [status, setstatus] = useState(STATUS_LIST)
     
     // const [tasks, setTask] = useState([])
     // const getDashboardTask = async () => {
@@ -39,7 +40,7 @@ const TaskList = ({data}) =>{
                 </Flex>
             </Flex>
             <Flex direction="column" borderradius="0.5rem" overflow="auto" border="1px solid #EAECF0">
-                <DataTable data={data} headings={headings} title="Tasks"/>
+                <DataTable data={data} headings={REQUESTS_HEADINGS} title="Tasks"/>
             </Flex>
         </Flex>
     )

@@ -1,19 +1,24 @@
 import AxiosConfig from "./axios";
 
-class TaskService extends AxiosConfig{
+class RequestService extends AxiosConfig{
     constructor(){
         super('tasks');
     }
 
-    async getAllTask(){
+    async getAllRequest(){
        const response = await this.axios.get('/dashboard');
        return response.data;
     }
      
-    async createNewTask(data){
+    async createNewRequest(data){
        const response = await this.axios.post('/create', data);
+       return response.data;
+    }
+
+    async getOneRequest(id){
+       const response = await this.axios.get(`/getOne/${id}`);
        return response.data;
     }
 }
 
-export default new TaskService();
+export default new RequestService();
