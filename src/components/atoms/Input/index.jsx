@@ -3,7 +3,7 @@ import React from "react";
 
 const InputStyled = styled.input`
   width: ${props => props.width || 'auto'};
-  height: '1rem';
+  height: 3rem;
   padding: ${props => props.type === 'checkbox' ? '0' : '0.8rem 0.5rem'};
   font-size: ${props => props.theme.font.display[props.TextDisplay] || props.theme.font.text.md} ;
   display: flex;

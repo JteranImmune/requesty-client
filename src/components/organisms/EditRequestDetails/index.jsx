@@ -12,6 +12,7 @@ import { capitalizedFirstLetter } from "../../../utils";
 import Input from "../../atoms/Input";
 import PhotoAlbum from "react-photo-album";
 import Button from "../../atoms/Button";
+import { formatDate } from "../../../utils";
 
 
 const EditRequestDetails = ({onChange, onSubmit, options, requestDetails }) =>{
@@ -64,12 +65,13 @@ const EditRequestDetails = ({onChange, onSubmit, options, requestDetails }) =>{
         }
     };
 
+    const dateFormated = formatDate(requestDetails.dueDate);
 
     return(
         <Flex direction='column'>
             <form onSubmit={onSubmit} style={{marginTop:'1.8rem'}} encType="multipart/form-data" > 
                 <Input type={"text"} name='title' value={requestDetails.title} TextDisplay="sm" height='auto' onChange={onChange}></Input>
-                <Flex gap="normal" align="flex-end" style={{marginTop:'1.8rem'}}>
+                <Flex gap="normal" align="flex-start" style={{marginTop:'1.8rem'}}>
                     {TASK_OPTIONS.map((option, index) =>
                         <TaskInputField 
                             label={option.label} 
@@ -82,7 +84,7 @@ const EditRequestDetails = ({onChange, onSubmit, options, requestDetails }) =>{
                         />
                     )}
                     {/* <CalendarPicker onChange={onChange} /> */}
-                    <InputDate label="Due Date" name="dueDate" onChange={onChange}/>
+                    <InputDate label="Due Date" name="dueDate" value={dateFormated}onChange={onChange}/>
                 </Flex>
                 <Flex direction="column" style={{marginTop:'1.8rem'}}>
                     <InputField label="Description" name="description" isTextArea={true} maxwidth="100%" onChange={onChange} value={requestDetails.description}/>

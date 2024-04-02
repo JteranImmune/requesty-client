@@ -8,7 +8,7 @@ import LoaderRequestSinglePage from "../SingleRequestPage/LoaderRequestSinglePag
 import EditRequestDetails from "../../components/organisms/EditRequestDetails";
 import { RequestContext } from "../../contexts/RequestContext";
 import { useNavigate } from "react-router-dom"
-import { useToast } from "@chakra-ui/react"
+import { Alert, AlertDescription, AlertIcon, AlertTitle, useToast } from "@chakra-ui/react"
 
 const SingleRequestPage =  () => {
 
@@ -55,7 +55,11 @@ const SingleRequestPage =  () => {
 
         } catch (error) {
             
-          console.log("ERROR ==>", error)
+        <Alert status='error'>
+            <AlertIcon />
+            <AlertTitle>error</AlertTitle>
+            <AlertDescription>Unable to edit the task.</AlertDescription>
+        </Alert>
         }
     }
 
@@ -63,6 +67,8 @@ const SingleRequestPage =  () => {
         const { name, value } = e.target;
         setRequestData({ ...requestData, [name]:value});
     };
+
+    console.log(requestData)
 
 
     return (

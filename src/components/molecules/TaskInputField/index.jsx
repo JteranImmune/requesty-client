@@ -13,6 +13,7 @@ const InputStyle = styled.button.attrs({ type: 'button' })`
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  margin-top: 0.5rem;
   padding: ${({theme}) => theme.padding.medium} ${({theme}) => theme.padding.small};
   font-size: ${props => props.theme.font.text.md};
   gap: 0.5rem;
@@ -41,6 +42,8 @@ const InputStyle = styled.button.attrs({ type: 'button' })`
 const ListWrapper = styled.div`
     width: 100%;
     position: relative;
+    margin-top: 1rem;
+
 `
 
 const ListStyle = styled.ul`
@@ -103,8 +106,7 @@ const TaskInputField = ({avatar, label, listItems, placeholder, toggleDropdown, 
                         {selectedItem && <Text>{selectedItem}</Text>}
                         {!selectedItem && <Text>{placeholder}</Text>}
                     </Flex>
-                    {isEditable && <Icon iconName="FaAngleDown"/>}
-                    {!isEditable && <Icon/>}
+                    <Icon iconName="FaAngleDown"/>
                 </InputStyle>
                 <ListWrapper>
                     <ListStyle isOpen={isOpen}>

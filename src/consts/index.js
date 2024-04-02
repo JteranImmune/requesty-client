@@ -3,6 +3,7 @@ export const CLIENTS_HEADINGS = ["Name","Created At"]
 export const TEAM_HEADINGS = ["Name","Role","Created At"] 
 export const STATUS_LIST = ["submited","in progress","completed","on hold"]
 export const PRIORITY_LIST = ["Low","High","Medium"]
+export const ROLE_LIST = ["Admin","Team","Client"]
 export const NAVIGATION_LINKS = [
     {link: "/", text:"Dashboard", dropdown:"false", icon:"FaHome", dropdownItems:[{}]},
     {link: "/requests", text:"Requests", dropdown:"false", icon:"FaListUl", dropdownItems:[{}]},
@@ -40,4 +41,11 @@ export const EDIT_REQUEST_MOCK = {
     status: '',
     owner: '',
     priority:''
+}
+
+export const REGISTER_LIST = {
+    name: "",
+    email: "",
+    password: "",
+    role: "",
 }
