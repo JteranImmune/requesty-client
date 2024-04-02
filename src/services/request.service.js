@@ -19,6 +19,11 @@ class RequestService extends AxiosConfig{
        const response = await this.axios.get(`/getOne/${id}`);
        return response.data;
     }
+
+    async editOneRequest(id, data) {
+      const response = await this.axios.put(`/edit/${id}`, data)
+      return response.data
+    }
 }
 
 export default new RequestService();

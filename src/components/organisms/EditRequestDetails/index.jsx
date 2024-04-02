@@ -11,9 +11,10 @@ import { STATUS_LIST, PRIORITY_LIST } from '../../../consts'
 import { capitalizedFirstLetter } from "../../../utils";
 import Input from "../../atoms/Input";
 import PhotoAlbum from "react-photo-album";
+import Button from "../../atoms/Button";
 
 
-const RequestDetails = ({onChange, onSubmit, options, requestDetails, disabled }) =>{
+const EditRequestDetails = ({onChange, onSubmit, options, requestDetails }) =>{
 
     const ownerIds = Array.isArray(options) ? options.map(item => item._id) : [];
     const ownerNames = Array.isArray(options) ? options.map(item => item.name) : [];
@@ -25,12 +26,12 @@ const RequestDetails = ({onChange, onSubmit, options, requestDetails, disabled }
 
     const priorityList = PRIORITY_LIST.map((name, index) => ({
         name: capitalizedFirstLetter(name),
-        id: index,
+        id: name,
       }));
 
     const statusList = STATUS_LIST.map((name, index) => ({
         name: capitalizedFirstLetter(name),
-        id: index,
+        id: name,
       }));
 
 
@@ -67,7 +68,7 @@ const RequestDetails = ({onChange, onSubmit, options, requestDetails, disabled }
     return(
         <Flex direction='column'>
             <form onSubmit={onSubmit} style={{marginTop:'1.8rem'}} encType="multipart/form-data" > 
-                <Input type={"text"} name={requestDetails.title} value={requestDetails.title} TextDisplay="sm"  disabled={disabled} height='auto'></Input>
+                <Input type={"text"} name='title' value={requestDetails.title} TextDisplay="sm" height='auto' onChange={onChange}></Input>
                 <Flex gap="normal" align="flex-end" style={{marginTop:'1.8rem'}}>
                     {TASK_OPTIONS.map((option, index) =>
                         <TaskInputField 
@@ -76,24 +77,25 @@ const RequestDetails = ({onChange, onSubmit, options, requestDetails, disabled }
                             placeholder={option.placeholder}
                             onChange={onChange}
                             key={index}
-                            disabled = {disabled}
-                            toggleDropdown={disabled ? () => {} : () => toggleDropdown(option.label)} 
+                            toggleDropdown={() => toggleDropdown(option.label)} 
                             isOpen={activeDropdown === option.label} 
                         />
                     )}
                     {/* <CalendarPicker onChange={onChange} /> */}
-                    <InputDate label="Due Date" name="dueDate" onChange={onChange} disabled = {disabled}/>
+                    <InputDate label="Due Date" name="dueDate" onChange={onChange}/>
                 </Flex>
                 <Flex direction="column" style={{marginTop:'1.8rem'}}>
-                    <InputField label="Description" name="description" disabled = {disabled} isTextArea={true} maxwidth="100%" onChange={onChange} value={requestDetails.description}/>
+                    <InputField label="Description" name="description" isTextArea={true} maxwidth="100%" onChange={onChange} value={requestDetails.description}/>
                     {/* <InputField label="Attachments" name="attachments" type="file" maxwidth="100%" onChange={onChange} multiple/> */}
                     {/* <FilesInput onChange={onChange}/> */}
                 </Flex>   
                 <Divider margin="large"/>
                 <PhotoAlbum layout="rows" photos={requestDetails.attachments}/>
+                <Divider margin="large"/>
+                <Button type="submit" iconName="FaEdit">Edit Request</Button>
             </form>
         </Flex>
     )
 };
 
-export default RequestDetails;
+export default EditRequestDetails;

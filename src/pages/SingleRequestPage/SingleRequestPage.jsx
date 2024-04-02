@@ -12,11 +12,6 @@ const SingleRequestPage =  () => {
 
     const [data, setData] = useState({teamList: null });
     const [request, setRequest] = useState(REQUEST_DETAILS_MOCK);
-    const [isEditable, setIsEditable] = useState(false)
-
-    const handleEditClick = () =>{
-        setIsEditable(current => !current)
-    }
 
     useEffect(() => {
         const loadData = async () => {
@@ -38,8 +33,6 @@ const SingleRequestPage =  () => {
         priority
     } = request;
 
-    console.log(request);
-
     const { id } = useParams();
 
     const getSingleRequest = async () =>{
@@ -56,15 +49,11 @@ const SingleRequestPage =  () => {
        getSingleRequest()
     },[])
 
-    console.log(request)
 
 
     return (
         <PageLayout title={'Request Details'} iconName="FaEdit" buttonText={"Edit Request"} LinkTo={`/request/edit/${request._id}`} showLink>
-            <RequestDetails options={data} requestDetails={request}/>
-            <Flex justify="flex-end" gap="normal">
-                <Button type="sumbit" variant={"secondary"}>Save</Button>
-            </Flex>
+            <RequestDetails options={data} requestDetails={request} disabled/>
         </PageLayout>
     )
 };

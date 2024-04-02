@@ -37,6 +37,8 @@ const CreateRequestPage = () =>{
         setRequestData({ ...requestData, [name]:value});
     }
 
+    console.log(requestData);
+
 
     return(
         <PageLayout title={'New Request'} container="sm">

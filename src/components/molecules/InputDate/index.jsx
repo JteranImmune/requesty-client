@@ -36,14 +36,14 @@ const InputDate = ({label, name, onChange, isEditable ,...inputProps}) => {
 
     return (
         <InputField
-            type={isEditable ? 'date' : 'text'}
+            type={'date'}
             name={name}
             label={label}
             value={currentDay}
             min={formatDate(nextDay)}
             max={formatDate(oneMonthLater)}
             isEditable={isEditable}
-            onChange={isEditable ? handleChange : () => {}}
+            onChange={handleChange}
             {...inputProps}
         />
     );

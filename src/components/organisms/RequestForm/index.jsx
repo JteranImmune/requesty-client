@@ -90,15 +90,14 @@ const RequestForm = ({title, onChange, onSubmit, options, avatar, name, value}) 
                             placeholder={option.placeholder}
                             onChange={onChange}
                             key={index} 
-                            isEditable={true}
                             toggleDropdown={() => toggleDropdown(option.label)} 
                             isOpen={activeDropdown === option.label} 
                         />
                     )}
                     {/* <CalendarPicker onChange={onChange} /> */}
-                    <InputDate label="Due Date" name="dueDate" onChange={onChange} isEditable={true}/>
-                    <InputField label="Title" name="title" type="text" maxwidth="100%" onChange={onChange} isEditable={true}/>
-                    <InputField label="Description" name="description" isTextArea={true} maxwidth="100%" onChange={onChange} isEditable/>
+                    <InputDate label="Due Date" name="dueDate" onChange={onChange}/>
+                    <InputField label="Title" name="title" type="text" maxwidth="100%" onChange={onChange}/>
+                    <InputField label="Description" name="description" isTextArea={true} maxwidth="100%" onChange={onChange}/>
                     {/* <InputField label="Attachments" name="attachments" type="file" maxwidth="100%" onChange={onChange} multiple/> */}
                     {/* <FilesInput onChange={onChange}/> */}
                 </Flex>

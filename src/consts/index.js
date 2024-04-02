@@ -32,3 +32,12 @@ export const REQUEST_DETAILS_MOCK = {
     owner: '',
     priority:''
 }
+
+export const EDIT_REQUEST_MOCK = {
+    title: '',
+    description: '',
+    dueDate: '',
+    status: '',
+    owner: '',
+    priority:''
+}
