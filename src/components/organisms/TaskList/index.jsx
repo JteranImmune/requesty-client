@@ -8,6 +8,7 @@ import {
     REQUESTS_HEADINGS, 
     STATUS_LIST 
 } from "../../../consts";
+import requestService from "../../../services/request.service";
 
 const TaskList = ({data}) =>{
 
@@ -29,16 +30,17 @@ const TaskList = ({data}) =>{
     //     getDashboardTask();
     // },[]) 
 
+
     return(
         <Flex direction="column"  gap="normal">
-            <Flex justify="space-between" gap="normal" width="100%">
+            {/* <Flex justify="space-between" gap="normal" width="100%">
                 <Flex>
                     <InputSelect options={status} defaultValue="All Task" placeholder="Select Status"/>
                 </Flex>
                 <Flex justify="flex-end" width="23.5rem" flex="none">
                      <InputSearch placeholder="Search"></InputSearch>
                 </Flex>
-            </Flex>
+            </Flex> */}
             <Flex direction="column" borderradius="0.5rem" overflow="auto" border="1px solid #EAECF0">
                 <DataTable data={data} headings={REQUESTS_HEADINGS} title="Tasks"/>
             </Flex>

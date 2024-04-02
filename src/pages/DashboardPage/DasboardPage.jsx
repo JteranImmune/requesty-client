@@ -8,11 +8,13 @@ import PageLayout from '../../components/templates/PageTemplate'
 
 const DasboardPage =  () => {
 
-    const tasks = useLoaderData();
+    const {request, clientList} = useLoaderData();
     
-    const modifiedTask = tasks.map(task => convertAvatarToObject(task));
+    const modifiedTask = request.map(task => convertAvatarToObject(task));
+    const modifiedClientList = clientList.map(task => convertAvatarToObject(task));
 
     const totalTask = modifiedTask.length;
+    const totalClient = modifiedClientList.length;
 
 
     return (
@@ -20,7 +22,7 @@ const DasboardPage =  () => {
         <PageLayout iconName='Faplus' buttonText='Create Request' title={'Dashboard'}>
             <Flex gap="large" padding="1rem 0">
                 <StatsCard title={"Total Requests"} number={totalTask} linkTo={"/requests"} linkText={"View All"}> </StatsCard>
-                <StatsCard title={"Total Clients"} number={"52"} linkTo={"/clients"} linkText={"View All"}></StatsCard>
+                <StatsCard title={"Total Clients"} number={totalClient} linkTo={"/clients"} linkText={"View All"}></StatsCard>
             </Flex>
             <Flex>
                 <TaskList data={modifiedTask}/>

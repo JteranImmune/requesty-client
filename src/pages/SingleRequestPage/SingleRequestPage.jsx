@@ -52,7 +52,7 @@ const SingleRequestPage =  () => {
 
 
     return (
-        <PageLayout title={'Request Details'} iconName="FaEdit" buttonText={"Edit Request"} LinkTo={`/request/edit/${request._id}`} showLink>
+        <PageLayout title={'Request Details'} iconName="FaEdit" buttonText={"Edit Request"} LinkTo={`/requests/edit/${request._id}`} showLink>
             <RequestDetails options={data} requestDetails={request} disabled/>
         </PageLayout>
     )

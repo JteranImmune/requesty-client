@@ -7,8 +7,6 @@ import Flex from '../../utility/Flex';
 const NavItemContainer = styled.div`
   position: relative;
   display: flex;
-  height: 2.5rem;
-  padding: ${props => props.theme.padding.small} ${props => props.theme.padding.medium};
   align-items: center;
   width: 100%;
   gap: ${props => props.theme.padding.medium};
@@ -29,6 +27,7 @@ const NavDropContainer = styled(NavItemContainer)`
   gap: ${props => props.theme.padding.small};
   align-self: stretch;
   color:${props => props.theme.colors.secondaryLight};
+  padding: ${props => props.theme.padding.small} ${props => props.theme.padding.medium};
   box-sizing: border-box;
   border-radius: ${props => props.theme.borderRadius.base};
   cursor: pointer;
@@ -47,12 +46,14 @@ const NavLinkStyled = styled(NavLink)`
 
   display: flex;
   align-items: center;
+  padding: ${props => props.theme.padding.small} ${props => props.theme.padding.medium};
   gap: ${props => props.theme.padding.medium};
   color: ${props => props.theme.colors.secondaryLight};
   width: 100%;
 
   &.active {
     background-color: ${props => props.theme.colors.lightDark}; 
+    border-radius: ${props => props.theme.borderRadius.base};
   }
 
 
@@ -81,6 +82,7 @@ const DropdownLink = styled(NavLinkStyled)`
 const DropdownMenu = styled.div`
   display: none;
   flex-direction: column;
+  gap: ${props => props.theme.padding.small};
   position: absolute;
   background-color: inherit;
   width: 100%;

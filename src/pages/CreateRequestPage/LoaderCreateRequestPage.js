@@ -12,7 +12,7 @@ const LoaderCreateRequestPage = async () => {
         return { clientList, serviceList, teamList };
     } catch (error) {
         console.error("Error loading data", error);
-        throw error; // Re-throw the error if you want to handle it outside
+        throw error;
     }
 };
 export default LoaderCreateRequestPage;

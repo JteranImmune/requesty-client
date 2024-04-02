@@ -24,6 +24,11 @@ class RequestService extends AxiosConfig{
       const response = await this.axios.put(`/edit/${id}`, data)
       return response.data
     }
+
+    async deleteOneRequest(id) {
+      const response = await this.axios.delete(`/delete/${id}`)
+      return response.data
+    }
 }
 
 export default new RequestService();

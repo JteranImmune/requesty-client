@@ -12,7 +12,8 @@ const Flex = styled(Box)`
   max-width: ${props => props.theme.containers[props.maxwidth] || 'unset'};
   border-radius: ${props => props.borderradius || '0'};
   overflow:${props => props.overflow || 'inherit'};
-  border: ${props => props.border || 'none'};;
+  border: ${props => props.border || 'none'};
+  max-height: ${props => props.height || 'auto'};
 `;
 
 export default Flex;

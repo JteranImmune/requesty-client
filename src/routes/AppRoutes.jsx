@@ -14,6 +14,7 @@ import SingleRequestPage from "../pages/SingleRequestPage/SingleRequestPage";
 import LoaderRequestSinglePage from "../pages/SingleRequestPage/LoaderRequestSinglePage";
 import LoaderEditRequestSinglePage from "../pages/EditSingleRequestPage/LoaderEditSingleRequestPage";
 import EditSingleRequestPage from '../pages/EditSingleRequestPage/EditSingleRequestPage'
+import RegisterUser from "../pages/RegisterUser/RegisterUser";
 
 const AppRoutes = () => {
     const router = createBrowserRouter([
@@ -36,12 +37,12 @@ const AppRoutes = () => {
                     loader: LoaderCreateRequestPage
                 },
                 {
-                    path: "request/:id",
+                    path: "requests/:id",
                     element: <SingleRequestPage />,
                     loader: LoaderRequestSinglePage
                 },
                 {
-                    path: "request/edit/:id",
+                    path: "requests/edit/:id",
                     element: <EditSingleRequestPage />,
                     loader: LoaderEditRequestSinglePage
                 },
@@ -64,6 +65,10 @@ const AppRoutes = () => {
                     path:'/team',
                     element: <TeamList />,
                     loader: LoaderTeamPage
+                },
+                {
+                    path:'/register',
+                    element: <RegisterUser />,
                 }
             ]
         },
