@@ -71,7 +71,7 @@ const RequestDetails = ({onChange, onSubmit, options, requestDetails, disabled }
     return(
         <Flex direction='column'>
             <form onSubmit={onSubmit} style={{marginTop:'1.8rem'}} encType="multipart/form-data" > 
-                <Input type={"text"} name={requestDetails.title} value={requestDetails.title} TextDisplay="sm"  disabled={disabled} height='auto'></Input>
+                <Input type={"text"} name={requestDetails.title} value={requestDetails.title} TextDisplay="sm" width="100%"  disabled={disabled} height='auto'></Input>
                 <Flex gap="normal" align="flex-start" style={{marginTop:'1.8rem'}}>
                     {TASK_OPTIONS.map((option, index) =>
                         <TaskInputField 

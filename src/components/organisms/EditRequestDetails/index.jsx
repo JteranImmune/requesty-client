@@ -70,7 +70,7 @@ const EditRequestDetails = ({onChange, onSubmit, options, requestDetails }) =>{
     return(
         <Flex direction='column'>
             <form onSubmit={onSubmit} style={{marginTop:'1.8rem'}} encType="multipart/form-data" > 
-                <Input type={"text"} name='title' value={requestDetails.title} TextDisplay="sm" height='auto' onChange={onChange}></Input>
+                <Input type={"text"} name='title' value={requestDetails.title} TextDisplay="sm" height='auto' width="100%" onChange={onChange}></Input>
                 <Flex gap="normal" align="flex-start" style={{marginTop:'1.8rem'}}>
                     {TASK_OPTIONS.map((option, index) =>
                         <TaskInputField 

@@ -15,18 +15,18 @@ class AuthService extends AxiosConfig {
     return response.data
   }
 
-  // async getUser(token) {
-  //   const response = await this.axios.post(
-  //     "/verify",
-  //     {},
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   )
-  //   return response.data
-  // }
+  async getUser(token) {
+    const response = await this.axios.post(
+      "/verify",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return response.data
+  }
 }
 
 const authService = new AuthService()

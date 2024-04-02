@@ -41,7 +41,7 @@ const InputDate = ({label, name, onChange, isEditable ,...inputProps}) => {
             label={label}
             value={currentDay}
             min={formatDate(nextDay)}
-            max={formatDate(oneMonthLater)}
+            // max={formatDate(oneMonthLater)}
             isEditable={isEditable}
             onChange={handleChange}
             {...inputProps}

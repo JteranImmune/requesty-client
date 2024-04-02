@@ -1,7 +1,7 @@
 export const REQUESTS_HEADINGS = ["Title","Client","Owner","Status","Priority","Created At","Due Date", 'Actions']
 export const CLIENTS_HEADINGS = ["Name","Created At"] 
 export const TEAM_HEADINGS = ["Name","Role","Created At"] 
-export const STATUS_LIST = ["submited","in progress","completed","on hold"]
+export const STATUS_LIST = ["submitted","in progress","completed","on hold"]
 export const PRIORITY_LIST = ["Low","High","Medium"]
 export const ROLE_LIST = ["Admin","Team","Client"]
 export const NAVIGATION_LINKS = [

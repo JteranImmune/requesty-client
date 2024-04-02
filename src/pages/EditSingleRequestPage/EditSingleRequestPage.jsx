@@ -48,7 +48,6 @@ const SingleRequestPage =  () => {
                 duration: 4000,
                 isClosable: true,
             })
-            
             setRequestData(updatedData)
 
             navigate(`/requests/${id}`)

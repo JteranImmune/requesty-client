@@ -71,12 +71,12 @@ const AppRoutes = () => {
                     path:'/register',
                     element: <RegisterUser />,
                 },
+                {
+                    path:'/login',
+                    element: <LogInUser />,
+                }
             ]
         },
-        {
-            path:'/login',
-            element: <LogInUser />,
-        }
     ])
 
     return <RouterProvider router={router}/>
