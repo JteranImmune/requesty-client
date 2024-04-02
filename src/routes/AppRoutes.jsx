@@ -15,6 +15,7 @@ import LoaderRequestSinglePage from "../pages/SingleRequestPage/LoaderRequestSin
 import LoaderEditRequestSinglePage from "../pages/EditSingleRequestPage/LoaderEditSingleRequestPage";
 import EditSingleRequestPage from '../pages/EditSingleRequestPage/EditSingleRequestPage'
 import RegisterUser from "../pages/RegisterUser/RegisterUser";
+import LogInUser from "../pages/LogInUser/Login";
 
 const AppRoutes = () => {
     const router = createBrowserRouter([
@@ -69,9 +70,13 @@ const AppRoutes = () => {
                 {
                     path:'/register',
                     element: <RegisterUser />,
-                }
+                },
             ]
         },
+        {
+            path:'/login',
+            element: <LogInUser />,
+        }
     ])
 
     return <RouterProvider router={router}/>

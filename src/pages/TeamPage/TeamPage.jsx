@@ -46,6 +46,7 @@ const TeamList =  () => {
           })
           navigate("/team")
           setShowModal(false)
+          
         } catch (error) {
             <Alert status='error'>
                 <AlertIcon />

@@ -20,6 +20,7 @@ const theme = {
       dark:"#101828",
       lightDark:"#344054",
       light:"#F2F4F7",
+      pageBackground: '#f2f2f2',
       
 
       //Boder
@@ -126,7 +127,7 @@ const theme = {
     containers: {
         default:"100%",
         sidebar: '17.5rem',    
-        xsm: '20rem',    
+        xsm: '30rem',    
         sm: '48rem',
         md: '60rem',
         lg: '80rem',

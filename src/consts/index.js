@@ -49,3 +49,8 @@ export const REGISTER_LIST = {
     password: "",
     role: "",
 }
+
+export const LOGIN_LIST = {
+    email: "",
+    password: "",
+}

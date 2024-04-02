@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         letter-spacing: 0.9px;
+        background-color: ${({theme}) => theme.colors.pageBackground } !important;
     }
 
     a {
